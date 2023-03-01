@@ -46,7 +46,7 @@
                 <i class="fas fa-calendar-alt"></i>
             </div>
         </a>
-        <a href="/homework/ü" class="nav-link">
+        <a href="/homework/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-check"></i>
             </div>
