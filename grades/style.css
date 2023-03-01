@@ -1,6 +1,6 @@
 .class_list {
     width: 100%;
-    margin-bottom: var(--navbar-height);
+    height: calc(100% - var(--navbar-height));
     overflow: auto;
 }
 
