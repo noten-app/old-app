@@ -1,0 +1,29 @@
+.class_list {
+    width: 100%;
+    margin-bottom: var(--navbar-height);
+    overflow: auto;
+}
+
+.class_entry {
+    width: calc(100% - 1rem);
+    margin: 0.5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "class_entry-name class_entry-average";
+    background-color: var(--background2-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-bottom: 0.25rem solid;
+}
+
+.class_entry-name {
+    grid-area: class_entry-name;
+}
+
+.class_entry-average {
+    grid-area: class_entry-average;
+    text-align: end;
+}
