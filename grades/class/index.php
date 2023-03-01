@@ -111,7 +111,29 @@
                 <?php 
                     foreach ($grades as $grade) {
                         echo '<div class="grade_entry">';
-                        echo '</div>';
+                        echo '<div class="grade">';
+                        echo $grade["grade"];
+                        echo '</div><div class="grade_type">';
+                        switch (strtolower($grade["type"])){
+                            case "k":
+                                echo "Exam";
+                                break;
+                            case "m":
+                                echo "Oral";
+                                break;
+                            case "t":
+                                echo "Test";
+                                break;
+                            case "s":
+                                echo "Other";
+                                break;
+                            default:
+                                echo "Unspecified";
+                                break;
+                        }                        
+                        echo '</div><div class="grade_date">';
+                        echo date("d.m.Y", strtotime($grade["date"]));
+                        echo '</div></div>';
                     }
                 ?>
             </div>
