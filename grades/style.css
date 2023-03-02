@@ -27,3 +27,8 @@
     grid-area: class_entry-average;
     text-align: end;
 }
+
+nav {
+    /* Add a little border with the background color to the top of the navbar to generate contrast between the navigation and the classes */
+    border-top: 0.25rem solid var(--background-color)
+}
