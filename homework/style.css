@@ -17,7 +17,7 @@ main {
 .homework_entry {
     display: grid;
     padding: 0.5rem;
-    grid-template-columns: auto 1fr min-content;
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: 1.5rem 1rem;
     gap: 0.25rem;
     grid-template-areas: "dot task task" "dot classname deadline";
@@ -62,11 +62,6 @@ main {
 
 .dot>i {
     display: block;
-}
-
-nav {
-    /* Add a little border with the background color to the top of the navbar to generate contrast between the navigation and the classes */
-    border-top: 0.25rem solid var(--background-color)
 }
 
 
