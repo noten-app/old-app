@@ -68,7 +68,7 @@
             <div class="homework">
                 <img src="https://fakeimg.pl/1200x600/000,000/fff,255">
             </div>
-            <div class="homework_sidebutton homework_button-settings">
+            <div class="homework_sidebutton homework_button-settings" onclick="location.assign('/settings/');">
                 <div>
                     <i class="fa-solid fa-gear"></i>
                 </div>
