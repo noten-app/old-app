@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="/res/css/fonts.css">
     <link rel="stylesheet" href="/res/css/main.css">
     <link rel="stylesheet" href="/res/css/navbar.css">
+    <link rel="stylesheet" href="/home/style.css">
 </head>
 
 <body>
@@ -63,6 +64,21 @@
         </a>
     </nav>
     <main id="main">
+        <div class="homework_overview">
+            <div class="homework">
+                <img src="https://fakeimg.pl/1200x600/000,000/fff,255">
+            </div>
+            <div class="homework_sidebutton homework_button-settings">
+                <div>
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+            </div>
+            <div class="homework_sidebutton homework_button-theme">
+                <div>
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="/res/js/themes/themes.js"></script>
 </body>
