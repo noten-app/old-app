@@ -73,7 +73,7 @@
                     <i class="fa-solid fa-gear"></i>
                 </div>
             </div>
-            <div class="homework_sidebutton homework_button-theme">
+            <div class="homework_sidebutton homework_button-theme" id="theme-icon" onclick="cycleTheme();">
                 <div>
                     <i class="fa-solid fa-circle-half-stroke"></i>
                 </div>

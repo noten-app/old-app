@@ -26,7 +26,7 @@ const config = {
             background3: '#0f111a',
             accent: '#0078d7',
             accent2: '#00bcf2',
-            icon: '<i class="fa-solid fa-cloud-moon"></i>'
+            icon: '<i class="fa-solid fa-cloud-meatball"></i>'
         }, {
             name: 'light',
             displayName: 'Hell',
@@ -44,7 +44,7 @@ const config = {
 
 // Functions
 
-function setTheme(set_to_theme) {
+function setTheme(set_to_theme, animate = false, init = false) {
     config.themes.forEach((theme) => {
         if (theme.name == set_to_theme) {
             Object.keys(theme).forEach((key) => {
@@ -52,8 +52,18 @@ function setTheme(set_to_theme) {
                     document.documentElement.style.setProperty('--' + key + '-color', theme[key]);
                 }
             });
+            if (animate && document.getElementById("theme-icon") != undefined) window.setTimeout(() => {
+                document.getElementById("theme-icon").children[0].innerHTML = theme.icon;
+            }, 250);
+            if (init && document.getElementById("theme-icon") != undefined) document.getElementById("theme-icon").children[0].innerHTML = theme.icon;
         }
     });
+    if (animate && document.getElementById("theme-icon") != undefined) {
+        let rotation = parseInt((document.getElementById("theme-icon").children[0].style.transform || "rotate(0deg);").replace("rotate(", "").replace("deg);", "").replace("deg)", ""));
+        rotation = rotation + 360;
+        document.getElementById("theme-icon").children[0].style.transform = "rotate(" + rotation + "deg)";
+        localStorage.setItem("theme", set_to_theme);
+    }
     localStorage.setItem("theme", set_to_theme);
 }
 
@@ -69,7 +79,7 @@ function initTheme() {
             theme = config.standart;
         }
     }
-    setTheme(theme);
+    setTheme(theme, undefined, true);
 }
 initTheme();
 
@@ -84,5 +94,5 @@ function cycleTheme() {
     } else {
         index++;
     }
-    setTheme(config.themes[index].name);
+    setTheme(config.themes[index].name, true);
 }
