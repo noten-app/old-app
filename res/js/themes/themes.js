@@ -33,7 +33,7 @@ const config = {
             text: '#000000',
             text2: '#222222',
             background: '#ffffff',
-            background2: '#f2f2f2',
+            background2: '#bbbbbb',
             background3: '#e6e6e6',
             accent: '#eb660e',
             accent2: '#f2a900',
