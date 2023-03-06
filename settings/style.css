@@ -124,3 +124,17 @@ Grade settings
 #grade-settings {
     padding: 0.75rem;
 }
+
+
+/* 
+Footer
+*/
+
+footer {
+    width: 100%;
+    min-height: 10vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: var(--text2-color);
+}

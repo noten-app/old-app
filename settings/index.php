@@ -190,6 +190,12 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <div class="footer_container">
+                <p>Made with ❤️ in Germany.</p>
+                <p><?php echo config_version_name; ?></p>
+            </div>
+        </footer>
     </main>
     <script src="/res/js/themes/themes.js"></script>
 </body>
