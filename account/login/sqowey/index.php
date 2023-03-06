@@ -1,5 +1,7 @@
 <?php 
 
+    exit("Sqowey login is not yet implemented. Please use the normal login for now.");
+
     // This PHP-Script will later connect to the Sqowey-OAuth2-Connection point to receive data
     // For now it just sets session vars
 
