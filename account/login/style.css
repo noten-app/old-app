@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+}
+
+html main {
+    display: grid;
+}
+
+h1 {
+    margin: 1rem;
+    font-size: 5rem;
+}
+
+form {
+    width: 100vw;
+    padding: 1rem;
+}
+
+.input {
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+label {
+    font-size: 1rem;
+}
+
+
+/* 
+Background images
+*/
+
+.background_img {
+    width: 100%;
+    background-size: cover;
+    z-index: 1;
+}
+
+.buttons_bg {
+    background-image: url("/res/img/login_bottom.png");
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 100vw;
+    max-height: 75vh;
+}
+
+.welcome_bg {
+    background-image: url("/res/img/login_topleft.png");
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    height: 100vw;
+    max-height: 75vh;
+}
+
+main * {
+    z-index: 50;
+}
+
+
+/* 
+The buttons
+*/
+
+input[type="submit"] {
+    display: block;
+    width: calc(100vw - 2rem);
+    background-color: var(--text-color);
+    color: var(--background-color);
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+}
+
+
+/* 
+Orientation landscape
+
+NOTE: This has been deactivated because this version will only be used on mobile.
+*/
+
+@media screen and (orientation: landscape) {
+    main {
+        grid-template-areas: "welcome_container button_container";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .buttons_bg {
+        background-image: url("/res/img/login_bottomright.png");
+        right: 0;
+        width: 75vw;
+        height: 100%;
+    }
+    .buttons button {
+        height: 10vmin;
+        font-size: 3vmin;
+        border-radius: 1vmin;
+    }
+    .welcome_bg {
+        background-image: url("/res/img/login_topleft.png");
+        left: 0;
+        width: 100vh;
+        height: 100vh;
+    }
+    .buttons {
+        width: 100%;
+        position: absolute;
+        bottom: 2.5rem;
+    }
+    .welcome>p {
+        max-width: 50vh;
+    }
+}

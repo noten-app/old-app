@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="/res/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">
-    <link rel="stylesheet" href="/res/css/account.css">
+    <link rel="stylesheet" href="/res/css/main.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <main id="main">
         <h1>Login</h1>
-        <hr>
         <form action="/account/login/login.php" method="POST">
             <div class="input">
                 <label for="username">Benutzername</label><br>
@@ -26,11 +26,12 @@
                 <label for="password">Passwort</label><br>
                 <input type="password" name="password" id="password" placeholder="Passwort" required>
             </div>
-            <hr>
             <div class="input" id="login_button_container">
                 <input type="submit" id="login_button" value="Anmelden">
             </div>
         </form>
+        <div class="welcome_bg background_img"></div>
+        <div class="buttons_bg background_img"></div>
         <!-- <hr>
         <button onclick="window.location.assign('./sqowey/');" id="sqowey_login">Mit besserem Sqowey-Account anmelden</button> -->
     </main>
