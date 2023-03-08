@@ -12,6 +12,7 @@ main {
 .calendar {
     grid-area: calendar;
     padding: 0.5rem 0.5rem 0 0.5rem;
+    height: calc(100vh - var(--navbar-height) - 60px - 1rem);
 }
 
 
