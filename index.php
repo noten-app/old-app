@@ -3,7 +3,7 @@
     // Check login state
     session_start();
     require("./res/php/checkLogin.php");
-    if(!checkLogin()) header("Location: ./account/login");
+    if(!checkLogin()) header("Location: /account");
 
     // Get config
     require("./config.php");
