@@ -52,7 +52,7 @@
         </div>
     </nav>
     <main id="main">
-        <div class="group_container" id="account-settings">            
+        <div class="group_container" id="account-settings" onclick="location.assign('/account/logout');">            
             <div class="account-greeting">
                 <span id="account_greeting-naa">Naaa,</span>
                 <span id="account_greeting-name"><?=$_SESSION["user_name"]?></span>
