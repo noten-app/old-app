@@ -84,6 +84,15 @@ input[type="submit"] {
     right: 1rem;
 }
 
+.password_reset {
+    position: absolute;
+    bottom: 4rem;
+    left: 1rem;
+    right: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 
 /* 
 Orientation landscape
@@ -128,5 +137,9 @@ NOTE: This has been deactivated because this version will only be used on mobile
         font-size: 1.5rem;
         height: 4rem;
         border-radius: 0.75rem;
+    }
+    .password_reset {
+        bottom: 5.5rem;
+        left: auto;
     }
 }
