@@ -101,6 +101,12 @@
                     <div class="gr5">5</div>
                     <div class="gr6">6</div>
                 </div>
+                <div class="grade-modifier_container">
+                    <div class="gr-full"><span id="gr-full_grade"></span></div>
+                    <div class="gr-025"><span id="gr-025_grade"></span></div>
+                    <div class="gr-050"><span id="gr-050_grade"></span></div>
+                    <div class="gr-075"><span id="gr-075_grade"></span></div>
+                </div>
             </div>
             <div class="note">
                 <div class="note-title">
@@ -125,6 +131,7 @@
     </main>
     <script src="/res/js/themes/themes.js"></script>
     <script src="./choose-type.js"></script>
+    <script src="./choose-grade.js"></script>
 </body>
 
 </html>

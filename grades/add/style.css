@@ -152,6 +152,63 @@ main {
     border-radius: 0.5rem;
 }
 
+.grade-modifier_container {
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    grid-auto-flow: row;
+    grid-template-areas: "gr-full gr-025 gr-050 gr-075";
+}
+
+.gr-025 {
+    grid-area: gr-025;
+}
+
+.gr-050 {
+    grid-area: gr-050;
+}
+
+.gr-075 {
+    grid-area: gr-075;
+}
+
+.gr-full {
+    grid-area: gr-full;
+}
+
+.grade-modifier_container>div>span {
+    display: inline;
+}
+
+.grade-modifier_container>div {
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
+    font-size: 5vw;
+    border-radius: 0.5rem;
+}
+
+.grade-modifier_container>div:not(.grade-modify_active) {
+    background-color: var(--background3-color);
+}
+
+.gr-full {
+    background-color: #179113;
+}
+
+.gr-025 {
+    background-color: #81b81c;
+}
+
+.gr-050 {
+    background-color: #b8891c;
+}
+
+.gr-075 {
+    background-color: #d14838;
+}
+
 
 /* Note section */
 
