@@ -1,3 +1,6 @@
+var gradeFull = 0;
+var gradeModifier = 0;
+
 const grade_container_1_6 = document.querySelector('.grade-container_1-6');
 const grade_button_1 = document.querySelector('.gr1');
 const grade_button_2 = document.querySelector('.gr2');
@@ -33,6 +36,7 @@ function chooseGrade(grade) {
         gr_050_container.style.display = 'none';
         gr_075_container.style.display = 'none';
     }
+    gradeFull = grade;
 }
 
 grade_button_1.addEventListener('click', () => chooseGrade(1));
@@ -53,6 +57,7 @@ function chooseGradeModifier(grade) {
     gr_050_container.classList.remove('grade-modify_active');
     gr_075_container.classList.remove('grade-modify_active');
     document.querySelector('.gr-' + grade).classList.add('grade-modify_active');
+    gradeModifier = grade;
 }
 
 function resetGradeModifier() {
@@ -65,4 +70,6 @@ function resetGradeModifier() {
     gr_025_container.style.display = 'grid';
     gr_050_container.style.display = 'grid';
     gr_075_container.style.display = 'grid';
+    gradeFull = 0;
+    gradeModifier = 0;
 }
