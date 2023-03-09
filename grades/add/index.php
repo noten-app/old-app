@@ -84,9 +84,9 @@
                     Type
                 </div>
                 <div class="type-container">
-                    <div class="type_k">Exam</div>
-                    <div class="type_m">Verbal</div>
-                    <div class="type_o">Test</div>
+                    <div class="type_k" id="type_k">Exam</div>
+                    <div class="type_m" id="type_m">Verbal</div>
+                    <div class="type_o" id="type_o">Test</div>
                 </div>
             </div>
             <div class="grade">
@@ -124,6 +124,7 @@
         </div>
     </main>
     <script src="/res/js/themes/themes.js"></script>
+    <script src="./choose-type.js"></script>
 </body>
 
 </html>

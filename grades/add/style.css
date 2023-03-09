@@ -66,6 +66,13 @@ main {
     display: grid;
     place-items: center;
     border-radius: 0.5rem;
+}
+
+.type-container>div:not(.type_active) {
+    background-color: var(--background3-color);
+}
+
+.type_active {
     background-color: var(--accent-color);
 }
 
