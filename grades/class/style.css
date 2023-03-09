@@ -32,6 +32,7 @@ Main views
 
 .class-main_content {
     grid-area: class-main_content;
+    overflow: hidden;
 }
 
 .gradelist {
