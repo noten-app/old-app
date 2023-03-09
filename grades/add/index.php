@@ -115,7 +115,7 @@
                     Note
                 </div>
                 <div class="note-container">
-                    <textarea name="" id="" rows="2"></textarea>
+                    <textarea id="note-input" rows="2"></textarea>
                 </div>
             </div>
             <div class="date">
@@ -130,10 +130,13 @@
         <div class="grade_add">
             <div>Add new grade <i class="fas fa-plus"></i></div>
         </div>
+        <div id="class_id" style="display: none;"><?=$_GET["class"]?></div>
     </main>
+    <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
     <script src="./choose-type.js"></script>
     <script src="./choose-grade.js"></script>
+    <script src="./add-grade.js"></script>
 </body>
 
 </html>
