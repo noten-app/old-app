@@ -86,6 +86,7 @@
                 <div class="type-container">
                     <div class="type_k" id="type_k">Exam</div>
                     <div class="type_m" id="type_m">Verbal</div>
+                    <div class="type_t" id="type_t">Test</div>
                     <div class="type_o" id="type_o">Other</div>
                 </div>
             </div>
