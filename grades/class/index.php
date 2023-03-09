@@ -139,7 +139,7 @@
             </div>
             <div class="statistics"></div>
         </div>
-        <div class="grade_add">
+        <div class="grade_add" onclick="location.assign('/grades/add/?class=<?=$_GET['class']?>')">
             <div>Add grade <i class="fas fa-plus"></i></div>
         </div>
     </main>
