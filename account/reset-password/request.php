@@ -27,18 +27,18 @@ $stmt->bind_result($id, $displayname);
 $stmt->fetch();
 $stmt->close();
 
-// Create 6 digit code
-$code = rand(100000, 999999);
+// Create 8 digit password using Chars 0-9 A-Z a-z !"$%&/+*~-_#
+$password = "";
+for ($i = 0; $i < 8; $i++) {
+    $password .= substr("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!\"$&/+*~-_#", mt_rand(0, 71), 1);
+}
 
-// Delete all codes if they exist (for the user)
-$stmt = $con->prepare("DELETE FROM ".config_table_name_reset_password." WHERE user_id = ?");
-$stmt->bind_param('s', $id);
-$stmt->execute();
-$stmt->close();
+// Hash password
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
-// Prepare statement to insert code into database
-$stmt = $con->prepare("INSERT INTO ".config_table_name_reset_password." (user_id, token, timeout) VALUES (?, ?, NOW() + INTERVAL 1 HOUR)");
-$stmt->bind_param('ss', $id, $code);
+// Update password
+$stmt = $con->prepare("UPDATE ".config_table_name_accounts." SET password = ?, account_version = 3 WHERE id = ?");
+$stmt->bind_param('ss', $hash, $id);
 $stmt->execute();
 $stmt->close();
 
@@ -63,8 +63,8 @@ try {
     // Content
     $mail->isHTML(true);                                            //Set email format to HTML
     $mail->Subject = 'Login Reset';
-    $mail->Body    = 'Someone requested that the password be reset for the following Noten-App.de Account:<br>Username: <b>'.$displayname.'</b><br>If this was a mistake, just ignore this email and nothing will happen.<br><br>To reset your password, visit the following Page: <a href="https://accounttools.noten-app.de/passwordreset/">https://accounttools.noten-app.de/passwordreset/</a><br>You need the following authentication Code: '.$code.'<br><br><br>Thank You';
-    $mail->AltBody = 'Someone requested that the password be reset for the following Noten-App.de Username: '.$displayname.'If this was a mistake, just ignore this email and nothing will happen. To reset your password, visit the following Page: https://accounttools.noten-app.de/passwordreset/You need the following authentication Code: '.$code.' Thank You';
+    $mail->Body    = 'Someone requested that the password be reset for the following Noten-App.de Account:<br>Username: <b>'.$displayname.'</b><br>If this was a mistake, just ignore this email and nothing will happen.<br><br><br>Your new Password is: '.$password.'<br><p style="font-weight: bold;color:red;">Please change it inside the App</p><br><br>Thank You';
+    $mail->AltBody = 'Someone requested that the password be reset for the following Noten-App.de Username: '.$displayname.'If this was a mistake, just ignore this email and nothing will happen.Your new Password is: '.$password.' Please change it in the app! Thank You';
 	
 	// Disable debugging
 	$mail->SMTPDebug = false;
