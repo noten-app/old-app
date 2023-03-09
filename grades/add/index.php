@@ -106,6 +106,7 @@
                     <div class="gr-025"><span id="gr-025_grade"></span></div>
                     <div class="gr-050"><span id="gr-050_grade"></span></div>
                     <div class="gr-075"><span id="gr-075_grade"></span></div>
+                    <i class="fa-solid fa-rotate-left" onclick="resetGradeModifier();"></i>
                 </div>
             </div>
             <div class="note">
