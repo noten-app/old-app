@@ -135,6 +135,7 @@
                         echo date("d.m.Y", strtotime($grade["date"]));
                         echo '</div></div>';
                     }
+                    if(count($grades) == 0) echo '<div class="nogrades">No grades yet</div>';
                 ?>
             </div>
             <div class="statistics"></div>
