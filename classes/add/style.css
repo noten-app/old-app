@@ -153,6 +153,10 @@ main {
     place-items: center left;
 }
 
+#grading-option_tests {
+    display: none;
+}
+
 
 /* Color Section */
 

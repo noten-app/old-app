@@ -78,7 +78,7 @@
                         <input type="number" name="" id="" value="1"/>
                         </div>
                     </div>
-                    <div class="grading-option">
+                    <div class="grading-option" id="grading-option_tests">
                         <div class="grading-option-title">Tests</div>
                         <div class="grading-option-input">
                             <input type="number" name="" id="" value="1"/>
@@ -98,10 +98,10 @@
                 </div>
                 <div class="test-behaviour-switch">
                     <div class="button_divider">
-                        <div class="button_divider-button_active">
+                        <div class="button_divider-button_active" id="test-behaviour-switch_all1">
                             All Tests<br>1 Exam
                         </div>
-                        <div>
+                        <div id="test-behaviour-switch_custom">
                             Custom
                         </div>
                     </div>
@@ -124,6 +124,7 @@
     </main>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
+    <script src="./test-switch.js"></script>
 </body>
 
 </html>
