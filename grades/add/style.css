@@ -58,7 +58,7 @@ main {
     grid-template-rows: 1fr 1fr;
     gap: 0.5rem;
     grid-auto-flow: row;
-    grid-template-areas: "type_k type_m" "type_t type_o";
+    grid-template-areas: "type_k type_m" "type_t type_s";
 }
 
 .type-container>div {
@@ -88,8 +88,8 @@ main {
     grid-area: type_t;
 }
 
-.type_o {
-    grid-area: type_o;
+.type_s {
+    grid-area: type_s;
 }
 
 
