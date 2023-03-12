@@ -58,7 +58,7 @@
                     Classname
                 </div>
                 <div class="name-container">
-                    <input type="text" id="note-input" placeholder="Classname">
+                    <input type="text" id="name-input" placeholder="Classname">
                 </div>
             </div>
             <div class="grading">
@@ -69,25 +69,25 @@
                     <div class="grading-option">
                         <div class="grading-option-title">Exams</div>
                         <div class="grading-option-input">
-                            <input type="number" name="" id="" value="2"/>
+                            <input type="number" id="grading_option-type_k" value="2"/>
                         </div>
                     </div>
                     <div class="grading-option">
                         <div class="grading-option-title">Verbal</div>
                         <div class="grading-option-input">
-                        <input type="number" name="" id="" value="1"/>
+                        <input type="number" id="grading_option-type_m" value="1"/>
                         </div>
                     </div>
                     <div class="grading-option" id="grading-option_tests">
                         <div class="grading-option-title">Tests</div>
                         <div class="grading-option-input">
-                            <input type="number" name="" id="" value="1"/>
+                            <input type="number" id="grading_option-type_t" value="1"/>
                         </div>
                     </div>
                     <div class="grading-option">
                         <div class="grading-option-title">Other</div>
                         <div class="grading-option-input">
-                            <input type="number" name="" id="" value="0"/>
+                            <input type="number" id="grading_option-type_s" value="0"/>
                         </div>
                     </div>
                 </div>
@@ -125,6 +125,7 @@
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
     <script src="./test-switch.js"></script>
+    <script src="./add-class.js"></script>
 </body>
 
 </html>
