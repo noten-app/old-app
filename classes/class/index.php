@@ -1,7 +1,7 @@
 <?php 
 
     // Check if class url-parameter is given
-    if(!isset($_GET["class"])) header("Location: /grades");
+    if(!isset($_GET["class"])) header("Location: /classes");
     $class_id = $_GET["class"];
 
     // Check login state
@@ -68,7 +68,7 @@
                 <i class="fas fa-arrow-left"></i>
             </div>
         </a>
-        <div class="nav-link">
+        <div class="nav-link" id="save_class">
             <div class="navbar_icon navbar_icon-save">
                 <i class="fa-solid fa-floppy-disk"></i>
             </div>
@@ -146,16 +146,18 @@
                         Class-Color
                     </div>
                     <div class="color-input">
-                        <!-- Random color lighter than #444444 -->
-                        <input type="color" id="color_input-input" value="<?php echo sprintf('#%06X', mt_rand(0, 0xFFFFFF)); ?>">
+                        <input type="color" id="color_input-input" value="#<?=$class_color?>">
                     </div>
                 </div>
             </div>
         </div>
+        <div id="classID" style="display: none;"><?=$class_id?></div>
     </main>
+    <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
     <script src="./test-switch.js"></script>
     <script src="./view-cycler.js"></script>
+    <script src="./modify-class.js"></script>
 </body>
 
 </html>
