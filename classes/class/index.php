@@ -149,6 +149,14 @@
                         <input type="color" id="color_input-input" value="#<?=$class_color?>">
                     </div>
                 </div>
+                <div class="delete dangerzone">
+                    <div class="color-title">
+                        Delete class
+                    </div>
+                    <div class="delete-button">
+                        <button onclick="deleteClass();">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="classID" style="display: none;"><?=$class_id?></div>
@@ -158,6 +166,7 @@
     <script src="./test-switch.js"></script>
     <script src="./view-cycler.js"></script>
     <script src="./modify-class.js"></script>
+    <script src="./delete-class.js"></script>
 </body>
 
 </html>
