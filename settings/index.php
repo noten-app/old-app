@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="/res/css/main.css">
     <link rel="stylesheet" href="/res/css/navbar.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./overlays.css">
 </head>
 
 <body>
@@ -51,8 +52,45 @@
             </div>
         </div>
     </nav>
+    <div class="overlays" id="overlay_container">
+        <div class="overlay" id="overlay_account">
+            <h1 class="overlay-title">Account</h1>
+            <div class="dropdown_container container_item">
+                <div class="dropdown_container-name">
+                    Change Email
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-at"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item">
+                <div class="dropdown_container-name">
+                    Change Username
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item" onclick="changePW()">
+                <div class="dropdown_container-name">
+                    Change Password
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fas fa-key"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item" onclick="location.assign('/account/logout')">
+                <div class="dropdown_container-name">
+                    Logout
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <main id="main">
-        <div class="group_container" id="account-settings" onclick="location.assign('/account/logout');">            
+        <div class="group_container" id="account-settings" onclick="open_overlay('overlay_account');">            
             <div class="account-greeting">
                 <span id="account_greeting-naa">Naaa,</span>
                 <span id="account_greeting-name"><?=$_SESSION["user_name"]?></span>
@@ -197,7 +235,9 @@
             </div>
         </footer>
     </main>
+    <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
+    <script src="./overlays.js"></script>
 </body>
 
 </html>
