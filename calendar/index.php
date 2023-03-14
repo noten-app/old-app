@@ -54,26 +54,34 @@
                 <i class="fas fa-home"></i>
             </div>
         </a>
+        <?php if(in_array("calendar", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/calendar/" class="nav-link nav-active">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-alt"></i>
             </div>
         </a>
+        <?php if(in_array("calendar", $config_disabled_tabs)) echo "-->" ?>
+        <?php if(in_array("homework", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/homework/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-check"></i>
             </div>
         </a>
+        <?php if(in_array("homework", $config_disabled_tabs)) echo "-->" ?>
+        <?php if(in_array("grades", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/grades/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fa-solid fa-graduation-cap"></i>
             </div>
         </a>
+        <?php if(in_array("grades", $config_disabled_tabs)) echo "-->" ?>
+        <?php if(in_array("classes", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/classes/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-book"></i>
             </div>
         </a>
+        <?php if(in_array("classes", $config_disabled_tabs)) echo "-->" ?>
     </nav>
     <main id="main">        
         <div class="calendar" id="calendar"></div>
