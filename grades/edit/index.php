@@ -144,6 +144,7 @@
     <script src="./choose-type.js"></script>
     <script src="./choose-grade.js"></script>
     <script src="./add-grade.js"></script>
+    <script src="./delete-grade.js"></script>
     <script>
         <?php 
         
