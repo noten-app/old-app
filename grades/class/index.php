@@ -121,7 +121,7 @@
             <div class="gradelist">  
                 <?php 
                     foreach ($grades as $grade) {
-                        echo '<div class="grade_entry">';
+                        echo '<div class="grade_entry" onclick="location.assign(\'/grades/edit/?grade='.$grade["id"].'\')">';
                         echo '<div class="grade">';
                         echo $grade["grade"];
                         echo '</div><div class="grade_type">';
