@@ -112,7 +112,7 @@
                 echo '<div class="class_entry';
                 echo '" onclick="location.assign(\'./class/?class='.$class["id"].'\')" style="border-color:#'.$class["color"].'">';
                 echo '<div class="class_entry-name">'.$class["name"].'</div>';
-                if($class["average"] != 0) echo '<div class="class_entry-average"> &empty; '.$class["average"].'</div>';
+                if($class["average"] != 0) echo '<div class="class_entry-average"> &empty; '.number_format($class["average"], $_SESSION["setting_rounding"], '.', '').'</div>';
                 echo '</div>';
             }
             ?>
