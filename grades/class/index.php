@@ -184,7 +184,7 @@
         </div>
         <div class="class_edit">
             <i id="view_toggle" class="fa-solid fa-chart-simple" onclick="toggle_stats_view()"></i>
-            <i class="fas fa-edit"></i>
+            <i class="fas fa-edit" onclick="location.assign('/classes/class/?class=<?=$class_id?>')"></i>
         </div>
         <div class="class-main_content">
             <div class="gradelist">  
