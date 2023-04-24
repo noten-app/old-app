@@ -1,0 +1,37 @@
+:root {
+    --text-color: #ffffff;
+    --text2-color: #cccccc;
+    --text-light: #222222;
+    --background-color: #282c36;
+    --background2-color: #181c26;
+    --background3-color: #0f111a;
+    --accent-color: #eb660e;
+    --accent2-color: #f2a900;
+    --navbar-height: 5rem;
+}
+
+html,
+body {
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0;
+    font-size: 100%;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Inter";
+    scroll-behavior: smooth;
+}
+
+main {
+    height: 100%;
+}

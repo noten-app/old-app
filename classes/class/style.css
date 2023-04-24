@@ -1,0 +1,262 @@
+main {
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: min-content 1fr min-content;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "class_title class_edit" "class-main_content class-main_content" "grade_add grade_add";
+}
+
+.class_title {
+    grid-area: class_title;
+}
+
+.class_edit {
+    grid-area: class_edit;
+    font-size: 2rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.class_title h1 {
+    margin: 1rem;
+}
+
+.dangerzone {
+    border: 0.15rem dashed #800;
+}
+
+
+/* 
+Main views
+*/
+
+.class-main_content {
+    grid-area: class-main_content;
+    overflow: hidden;
+    padding: 0.5rem;
+}
+
+.class-main_content>div>div {
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.class-main_content>div>div:last-child {
+    margin-bottom: 0;
+}
+
+.statistics {
+    display: none;
+}
+
+.settings {
+    display: block;
+}
+
+#view_settings {
+    color: var(--accent-color);
+}
+
+.class-main_content {
+    grid-area: class-main_content;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.button_divider {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--background-color);
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+.button_divider>div {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 0.25rem;
+    flex-grow: 1;
+    min-height: 48px;
+}
+
+.button_divider-button_active {
+    background-color: var(--background3-color);
+    border-radius: 0.25rem;
+}
+
+
+/* Classname section */
+
+.name {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background2-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.name-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.name-container {
+    display: flex;
+}
+
+.name-container>input {
+    flex-grow: 1;
+    resize: vertical;
+    border-radius: 0.5rem;
+    border: 0;
+    outline: 0;
+    background-color: var(--background3-color);
+    color: var(--text-color);
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    max-width: 100%;
+}
+
+
+/* Test grading Behaviour section */
+
+.test-behaviour {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background2-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.test-behaviour-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.test-behaviour-container {
+    display: flex;
+}
+
+
+/* Grading section */
+
+.grading {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background2-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.grading-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.grading-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.grading-option {
+    background-color: var(--background-color);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.grading-option:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom: 0;
+}
+
+.grading-option:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.grading-option-input>input {
+    background-color: var(--background3-color);
+    color: var(--text-color);
+    border: 0;
+    outline: 0;
+    padding: 0.5rem;
+    width: 10rem;
+}
+
+.grading-option-title {
+    flex-grow: 1;
+    font-size: 1.25rem;
+    display: grid;
+    place-items: center left;
+}
+
+.grading-option-hidden {
+    display: none;
+}
+
+
+/* Color Section */
+
+.color {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--background2-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.color-title {
+    flex-grow: 1;
+    font-size: 1.5rem;
+}
+
+.color-input {
+    flex-shrink: 1;
+}
+
+.color-input>input {
+    width: 3rem;
+    background-color: #ffffff;
+    border: 0;
+    color: var(--text-color);
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+
+/* Delete Section */
+
+.delete {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--background2-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.delete-title {
+    flex-grow: 1;
+    font-size: 1.5rem;
+}
+
+.delete-button {
+    flex-shrink: 1;
+}
+
+.delete-button>button {
+    background-color: #800;
+    border: 0;
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
