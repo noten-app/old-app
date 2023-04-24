@@ -134,6 +134,16 @@
             exit("ERROR1");
         }
     }
+    // If no grades but average is given -> delete average
+    if($num_of_k + $num_of_m + $num_of_t + $num_of_s == 0) {
+        if ($stmt = $con->prepare('UPDATE classes SET average = 0 WHERE id = ?')) {
+            $stmt->bind_param('i', $class_id);
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            exit("ERROR1");
+        }
+    }
 
     // DB Con close
     $con->close();
