@@ -22,11 +22,11 @@
     if(mysqli_connect_errno()) exit("Error with the Database");
 
     // Get class
-    if ($stmt = $con->prepare('SELECT name, color, user_id, last_used, grade_k, grade_m, grade_s FROM classes WHERE id = ?')) {
+    if ($stmt = $con->prepare('SELECT name, color, user_id, last_used, grade_k, grade_m, grade_t, grade_s FROM classes WHERE id = ?')) {
         $stmt->bind_param('s', $class_id);
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($class_name, $class_color, $user_id, $last_used, $grade_k, $grade_m, $grade_s);
+        $stmt->bind_result($class_name, $class_color, $user_id, $last_used, $grade_k, $grade_m, $grade_t, $grade_s);
         $stmt->fetch();
         if($user_id !== $_SESSION["user_id"]){
             $name = "";
@@ -59,6 +59,81 @@
             $grade = "";
             exit("ERROR2");
         }
+        $stmt->close();
+    } else {
+        exit("ERROR1");
+    }
+
+    // 
+    // Calculate average
+    // 
+    $num_of_k = 0;
+    $num_of_m = 0;
+    $num_of_t = 0;
+    $num_of_s = 0;
+    foreach ($grades as $grade) {
+        if($grade["type"] == "k") $num_of_k++;
+        if($grade["type"] == "m") $num_of_m++;
+        if($grade["type"] == "t") $num_of_t++;
+        if($grade["type"] == "s") $num_of_s++;
+    }
+    // Calculate the sum of all weights
+    if($grade_t == "1exam" || $grade_t == "") $weight_sum = $grade_k + $grade_m + $grade_s;
+    else $weight_sum = $grade_k + $grade_m + $grade_t + $grade_s;
+    // Update weight variables to represent the weight of one grade in percent
+    $grade_k = $grade_k / $weight_sum;
+    $grade_m = $grade_m / $weight_sum;
+    if($grade_t != "1exam" && $grade_t != "") $grade_t = $grade_t / $weight_sum;
+    $grade_s = $grade_s / $weight_sum;
+    // Update weight variables to represent the current variable value divided by the number of grades of that type
+    if($num_of_k != 0) $grade_k = $grade_k / $num_of_k;
+    if($num_of_m != 0) $grade_m = $grade_m / $num_of_m;
+    if($grade_t != "1exam" && $grade_t != "" && $num_of_t != 0) $grade_t = $grade_t / $num_of_t;
+    if($num_of_s != 0) $grade_s = $grade_s / $num_of_s;
+    // Calculate average (not tests)
+    $grade_sum = 0.0;
+    foreach ($grades as $grade) {
+        switch ($grade["type"]) {
+            case "k":
+                $grade_sum += $grade["grade"] * $grade_k;
+                break;
+            case "m":
+                $grade_sum += $grade["grade"] * $grade_m;
+                break;
+            case "s":
+                $grade_sum += $grade["grade"] * $grade_s;
+                break;
+        }
+    }
+    // Add tests to average
+    if ($num_of_t != 0) {
+        if($grade_t == "1exam" || $grade_t == "") {
+            // Get average of tests and add it to the average as one k
+            $test_sum = 0;
+            $test_count = 0;
+            foreach ($grades as $grade) {
+                if($grade["type"] == "t") {
+                    $test_sum += $grade["grade"];
+                    $test_count++;
+                }
+            }
+            $test_avg = $test_sum / $test_count;
+            $grade_sum += $test_avg * $grade_k;
+        } else {
+            // Add each test to the average with weight grade_t
+            foreach ($grades as $grade) {
+                if($grade["type"] == "t") {
+                    $grade_sum += $grade["grade"] * $grade_t;
+                }
+            }
+        }
+    }
+    // Calculate average
+    $average = $grade_sum;
+    // Insert average into class
+    if ($stmt = $con->prepare('UPDATE classes SET average = ? WHERE id = ?')) {
+        $stmt->bind_param('si', $average, $class_id);
+        $stmt->execute();
         $stmt->close();
     } else {
         exit("ERROR1");
