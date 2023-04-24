@@ -122,15 +122,17 @@
             }
         }
     }
-    // Calculate average
-    $average = $grade_sum / $weight_sum;
-    // Insert average into class
-    if ($stmt = $con->prepare('UPDATE classes SET average = ? WHERE id = ?')) {
-        $stmt->bind_param('si', $average, $class_id);
-        $stmt->execute();
-        $stmt->close();
-    } else {
-        exit("ERROR1");
+    if(!($grade_sum == 0 || $weight_sum == 0)) {
+        // Calculate average
+        $average = $grade_sum / $weight_sum;
+        // Insert average into class
+        if ($stmt = $con->prepare('UPDATE classes SET average = ? WHERE id = ?')) {
+            $stmt->bind_param('si', $average, $class_id);
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            exit("ERROR1");
+        }
     }
 
     // DB Con close
