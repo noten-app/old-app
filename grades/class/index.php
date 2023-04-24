@@ -80,28 +80,22 @@
     // Calculate the sum of all weights
     if($grade_t == "1exam" || $grade_t == "") $weight_sum = $grade_k + $grade_m + $grade_s;
     else $weight_sum = $grade_k + $grade_m + $grade_t + $grade_s;
-    // Update weight variables to represent the weight of one grade in percent
-    $grade_k = $grade_k / $weight_sum;
-    $grade_m = $grade_m / $weight_sum;
-    if($grade_t != "1exam" && $grade_t != "") $grade_t = $grade_t / $weight_sum;
-    $grade_s = $grade_s / $weight_sum;
-    // Update weight variables to represent the current variable value divided by the number of grades of that type
-    if($num_of_k != 0) $grade_k = $grade_k / $num_of_k;
-    if($num_of_m != 0) $grade_m = $grade_m / $num_of_m;
-    if($grade_t != "1exam" && $grade_t != "" && $num_of_t != 0) $grade_t = $grade_t / $num_of_t;
-    if($num_of_s != 0) $grade_s = $grade_s / $num_of_s;
     // Calculate average (not tests)
     $grade_sum = 0.0;
+    $weight_sum = 0.0;
     foreach ($grades as $grade) {
         switch ($grade["type"]) {
             case "k":
                 $grade_sum += $grade["grade"] * $grade_k;
+                $weight_sum += $grade_k;
                 break;
             case "m":
                 $grade_sum += $grade["grade"] * $grade_m;
+                $weight_sum += $grade_m;
                 break;
             case "s":
                 $grade_sum += $grade["grade"] * $grade_s;
+                $weight_sum += $grade_s;
                 break;
         }
     }
@@ -129,7 +123,7 @@
         }
     }
     // Calculate average
-    $average = $grade_sum;
+    $average = $grade_sum / $weight_sum;
     // Insert average into class
     if ($stmt = $con->prepare('UPDATE classes SET average = ? WHERE id = ?')) {
         $stmt->bind_param('si', $average, $class_id);
