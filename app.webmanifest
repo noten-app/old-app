@@ -1,5 +1,5 @@
 {
-    "background_color": "#ffffff",
+    "background_color": "#282c36",
     "categories": ["education"],
     "description": "Die App mit der du deinen Schulalltag planen kannst. Du kannst deine Noten eintragen, Arbeiten oder Hausaufgaben planen und noch vieles mehr.",
     "display": "standalone",
@@ -53,5 +53,5 @@
     "orientation": "portrait",
     "short_name": "NotenApp",
     "start_url": "/",
-    "theme_color": "#ffffff"
+    "theme_color": "#eb660e"
 }
