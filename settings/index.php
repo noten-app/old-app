@@ -114,15 +114,15 @@
             <div class="container_item">
                 Decimals (Rounding)
                 <div class="button_divider">
-                    <div class="button_divider-button_active">
+                    <div <?php if($_SESSION["setting_rounding"] == 0) echo 'class="button_divider-button_active" ';?>onclick="setRounding(0);">
                         No<br>
                         2
                     </div>
-                    <div>
+                    <div <?php if($_SESSION["setting_rounding"] == 1) echo 'class="button_divider-button_active" ';?>onclick="setRounding(1);">
                         One<br>
                         1,7
                     </div>
-                    <div>
+                    <div <?php if($_SESSION["setting_rounding"] == 2) echo 'class="button_divider-button_active" ';?>onclick="setRounding(2);">
                         Two<br>1,72
                     </div>
                 </div>
@@ -231,13 +231,14 @@
         <footer>
             <div class="footer_container">
                 <p>Made with ❤️ in Germany.</p>
-                <p><?php echo config_version_name; ?></p>
+                <p><?php echo config_version_name; ?><?php if($_SESSION["beta_tester"])echo " Beta"?></p>
             </div>
         </footer>
     </main>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
     <script src="./overlays.js"></script>
+    <script src="./rounding.js"></script>
 </body>
 
 </html>
