@@ -92,12 +92,7 @@
     if($num_of_s != 0) $grade_s = $grade_s / $num_of_s;
     // Calculate average (not tests)
     $grade_sum = 0.0;
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
     foreach ($grades as $grade) {
-        var_dump($grade["grade"]);
-        var_dump($grade["type"]);
         switch ($grade["type"]) {
             case "k":
                 $grade_sum += $grade["grade"] * $grade_k;
@@ -109,13 +104,7 @@
                 $grade_sum += $grade["grade"] * $grade_s;
                 break;
         }
-        var_dump($grade_sum);
-        echo "<br>";
     }
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>MIMIMI";
     // Add tests to average
     if ($num_of_t != 0) {
         if($grade_t == "1exam" || $grade_t == "") {
@@ -139,7 +128,6 @@
             }
         }
     }
-    var_dump($grade_sum);
     // Calculate average
     $average = $grade_sum;
     // Insert average into class
