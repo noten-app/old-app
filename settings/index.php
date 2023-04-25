@@ -231,7 +231,7 @@
         <footer>
             <div class="footer_container">
                 <p>Made with ❤️ in Germany.</p>
-                <p><?php echo config_version_name; ?><?php if($_SESSION["beta_tester"])echo " Beta"?></p>
+                <p><?php echo config_version_name; ?><?php if($_SESSION["beta_tester"] == 1)echo " Beta"?></p>
             </div>
         </footer>
     </main>
