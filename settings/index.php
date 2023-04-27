@@ -168,7 +168,7 @@
         </div>
         <span class="container-title">Advanced settings</span>
         <div class="group_container" id="location-settings">
-            <div class="dropdown_container container_item">
+            <div class="dropdown_container container_item" onclick="window.open('./export_grades.php', '_blank')">
                 <div class="dropdown_container-name">
                     Export grades
                 </div>
