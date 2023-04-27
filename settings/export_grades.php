@@ -113,5 +113,5 @@
     $con->close();
 
     // Output PDF
-    $pdf->Output();
+    $pdf->Output("d", "Export-".date("d_m_Y").".pdf");
 ?>
