@@ -184,7 +184,7 @@
                 <i class="fas fa-home"></i>
             </div>
         </a>
-        <a href="/grades/" class="nav-link">
+        <a href=".." class="nav-link">
             <div class="navbar_icon">
                 <i class="fa-solid fa-arrow-left"></i>
             </div>
@@ -196,13 +196,13 @@
         </div>
         <div class="class_edit">
             <i id="view_toggle" class="fa-solid fa-chart-simple" onclick="toggle_stats_view()"></i>
-            <i class="fas fa-edit" onclick="location.assign('/classes/class/?class=<?=$class_id?>')"></i>
+            <i class="fas fa-cog" onclick="location.assign('/classes/edit/?class=<?=$class_id?>')"></i>
         </div>
         <div class="class-main_content">
             <div class="gradelist">  
                 <?php 
                     foreach ($grades as $grade) {
-                        echo '<div class="grade_entry" onclick="location.assign(\'/grades/edit/?grade='.$grade["id"].'\')">';
+                        echo '<div class="grade_entry" onclick="location.assign(\'/classes/grades/edit/?grade='.$grade["id"].'\')">';
                         echo '<div class="grade">';
                         echo $grade["grade"];
                         echo '</div><div class="grade_type">';
@@ -232,7 +232,7 @@
             </div>
             <div class="statistics"></div>
         </div>
-        <div class="grade_add" onclick="location.assign('/grades/add/?class=<?=$_GET['class']?>')">
+        <div class="grade_add" onclick="location.assign('/classes/grades/add/?class=<?=$_GET['class']?>')">
             <div>Add grade <i class="fas fa-plus"></i></div>
         </div>
     </main>

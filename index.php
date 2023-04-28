@@ -67,13 +67,6 @@
             </div>
         </a>
         <?php if(in_array("homework", $config_disabled_tabs)) echo "-->" ?>
-        <?php if(in_array("grades", $config_disabled_tabs)) echo "<!--" ?>
-        <a href="/grades/" class="nav-link">
-            <div class="navbar_icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-        </a>
-        <?php if(in_array("grades", $config_disabled_tabs)) echo "-->" ?>
         <?php if(in_array("classes", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/classes/" class="nav-link">
             <div class="navbar_icon">

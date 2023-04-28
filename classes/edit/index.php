@@ -90,8 +90,7 @@
             <h1><?=$class_name?></h1>
         </div>
         <div class="class_edit">
-            <i id="view_statistics" class="fa-solid fa-chart-simple"></i>
-            <i id="view_settings" class="fas fa-cog"></i>
+            <i id="view_settings" class="fas fa-cog" onclick="location.assign('/classes/grades?class=<?=$class_id?>')"></i>
         </div>
         <div class="class-main_content">
             <div class="statistics main_view" id="main_view-statistics">

@@ -90,13 +90,6 @@
             </div>
         </a>
         <?php if(in_array("homework", $config_disabled_tabs)) echo "-->" ?>
-        <?php if(in_array("grades", $config_disabled_tabs)) echo "<!--" ?>
-        <a href="/grades/" class="nav-link">
-            <div class="navbar_icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-        </a>
-        <?php if(in_array("grades", $config_disabled_tabs)) echo "-->" ?>
         <?php if(in_array("classes", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/classes/" class="nav-link nav-active">
             <div class="navbar_icon">
@@ -110,7 +103,7 @@
             <?php 
             foreach ($classlist as $class) {
                 echo '<div class="class_entry';
-                echo '" onclick="location.assign(\'./class/?class='.$class["id"].'\')" style="border-color:#'.$class["color"].'">';
+                echo '" onclick="location.assign(\'./grades/?class='.$class["id"].'\')" style="border-color:#'.$class["color"].'">';
                 echo '<div class="class_entry-name">'.$class["name"].'</div>';
                 if($class["average"] != 0) echo '<div class="class_entry-average"> &empty; '.number_format($class["average"], $_SESSION["setting_rounding"], '.', '').'</div>';
                 echo '</div>';
