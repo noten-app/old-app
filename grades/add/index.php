@@ -126,7 +126,7 @@
                     Note
                 </div>
                 <div class="note-container">
-                    <textarea id="note-input" rows="2"></textarea>
+                    <input type="text" id="note-input" maxlength="25">
                 </div>
             </div>
             <div class="date">
