@@ -120,7 +120,7 @@
                     Note
                 </div>
                 <div class="note-container">
-                    <input type="text" id="note-input" maxlength="25" value="<?=htmlspecialchars($note)?>">
+                    <textarea id="note-input" rows="2"><?=htmlspecialchars($note)?></textarea>
                 </div>
             </div>
             <div class="date">

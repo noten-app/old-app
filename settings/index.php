@@ -168,7 +168,7 @@
         </div>
         <span class="container-title">Advanced settings</span>
         <div class="group_container" id="location-settings">
-            <div class="dropdown_container container_item" onclick="window.open('./export_grades.php', '_blank')">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Export grades
                 </div>
@@ -176,7 +176,7 @@
                     <i class="fa-solid fa-file-arrow-down"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/changelog/', '_blank')">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     About this version
                 </div>
@@ -187,7 +187,7 @@
         </div>
         <span class="container-title">More Help</span>
         <div class="group_container" id="location-settings">
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de', '_blank')">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Website
                 </div>
@@ -195,7 +195,7 @@
                     <i class="fa-solid fa-chevron-right"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/help/', '_blank')">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Help & FAQ
                 </div>
@@ -203,7 +203,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/support/', '_blank')">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Support
                 </div>
@@ -211,7 +211,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/legal/agb/', '_blank')">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Terms of Service
                 </div>
@@ -219,7 +219,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/legal/datenschutz/', '_blank')">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Privacy policy
                 </div>
@@ -231,7 +231,7 @@
         <footer>
             <div class="footer_container">
                 <p>Made with ❤️ in Germany.</p>
-                <p><?php echo config_version_name; ?><?php if($_SESSION["beta_tester"] == 1)echo " Beta"?></p>
+                <p><?php echo config_version_name; ?><?php if($_SESSION["beta_tester"])echo " Beta"?></p>
             </div>
         </footer>
     </main>

@@ -62,8 +62,8 @@
     // Check if type is valid (k,m,o,t)
     if(!preg_match("/^[kmot]$/", $type)) die("invalid-type");
 
-    // Check if note is valid (max 25 chars)
-    if(strlen($note) > 25) die("invalid-note");
+    // Check if note is valid (max 20 chars)
+    if(strlen($note) > 20) die("invalid-note");
 
     // Add grade
     if ($stmt = $con->prepare('UPDATE '.config_table_name_grades.' SET note = ?, type = ?, date = ?, grade = ? WHERE id = ?')) {
