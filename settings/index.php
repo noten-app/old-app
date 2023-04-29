@@ -79,12 +79,48 @@
                     <i class="fas fa-key"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="location.assign('/account/logout')">
+            <div class="dropdown_container container_item" onclick="location.assign('/account/logout');">
                 <div class="dropdown_container-name">
                     Logout
                 </div>
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fa-solid fa-right-from-bracket"></i>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay_credits">
+            <h1 class="overlay-title">Credits</h1>
+            <p>Open Source software used:</p>
+            <div class="dropdown_container container_item" onclick="window.open('https:\/\/fontawesome.com/', '_blank');">
+                <div class="dropdown_container-name">
+                    Fontawesome Icons
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item" onclick="window.open('https:\/\/fullcalendar.io/', '_blank');">
+                <div class="dropdown_container-name">
+                    Fullcalendar
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item" onclick="window.open('http:\/\/fpdf.org', '_blank');">
+                <div class="dropdown_container-name">
+                    FPDF
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item" onclick="window.open('https:\/\/github.com/PHPMailer/PHPMailer/', '_blank');">
+                <div class="dropdown_container-name">
+                    PHPMailer
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
         </div>
@@ -206,6 +242,14 @@
             <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/support/', '_blank')">
                 <div class="dropdown_container-name">
                     Support
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item" onclick="open_overlay('overlay_credits');">
+                <div class="dropdown_container-name">
+                    Credits
                 </div>
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fas fa-chevron-right"></i>
