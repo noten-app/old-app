@@ -47,8 +47,10 @@
             </div>
         </a>
         <div class="nav-link">
-            <div class="navbar_icon navbar_icon-save">
-                <i class="fa-solid fa-floppy-disk"></i>
+            <div class="homework_sidebutton homework_button-theme" id="theme-icon" onclick="cycleTheme();">
+                <div>
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </div>
             </div>
         </div>
     </nav>
@@ -281,8 +283,8 @@
     </main>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
-    <script src="./overlays.js"></script>
-    <script src="./rounding.js"></script>
+    <script src="overlays.js"></script>
+    <script src="rounding.js"></script>
 </body>
 
 </html>
