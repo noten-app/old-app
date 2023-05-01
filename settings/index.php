@@ -60,7 +60,10 @@
             <h1 class="overlay-title">Account</h1>
             <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
-                    Change Email
+                    <?php 
+                        if(isset($_SESSION['user_email'])) echo "Change Email";
+                        else echo "Add Email"; 
+                    ?>
                 </div>
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fa-solid fa-at"></i>
