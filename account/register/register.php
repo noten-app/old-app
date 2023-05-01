@@ -12,6 +12,25 @@
     $password = $_POST['password'];
     $password_rep = $_POST['password_rep'];
 
+    // Functions to generate an ID
+    function generateIDsection($length){
+        $id_charset = "abcdefghijklmnopqrstuvwxyz123465789";
+        $generated = "";
+        for ($i=0; $i < $length; $i++) { 
+            $new_char = substr($id_charset, mt_rand(0, strlen($id_charset)),1);
+            $generated .= $new_char;
+        }
+        return $generated;
+    }
+    function generateID(){
+        $gen_id = generateIDsection(8) . "-";
+        $gen_id .= generateIDsection(4) . "-";
+        $gen_id .= generateIDsection(4) . "-";
+        $gen_id .= generateIDsection(4) . "-";
+        $gen_id .= generateIDsection(12);
+        return $gen_id;
+    }
+
     // Conect to database
     $con = mysqli_connect(config_db_host, config_db_user, config_db_password, config_db_name);
     if (mysqli_connect_errno()) exit("Error connecting to our database! Please try again later."); 
@@ -29,9 +48,12 @@
     // Hash password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
+    // Generate ID
+    $id = generateID();
+
     // Insert account into database
-    if($stmt = $con->prepare("INSERT INTO ".config_table_name_accounts." (username, password, displayname, account_version) VALUES (?, ?, ?, 3)")) {
-        $stmt->bind_param('sss', $username, $password, $displayname);
+    if($stmt = $con->prepare("INSERT INTO ".config_table_name_accounts." (username, id, password, displayname, account_version) VALUES (?, ?, ?, ?, 3)")) {
+        $stmt->bind_param('ssss', $username, $id, $password, $displayname);
         $stmt->execute();
         $stmt->close();
     } else exit("Error inserting account into database! Please try again later.");
