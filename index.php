@@ -44,6 +44,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="manifest" href="/app.webmanifest">
     <meta name="msapplication-config" content="/browserconfig.xml">
+    <?php require("./res/php/noMailCheck.php"); ?>
 </head>
 
 <body>
