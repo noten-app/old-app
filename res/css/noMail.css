@@ -1,0 +1,36 @@
+.noMailNotice {
+    width: 100%;
+    height: 3rem;
+    background-color: #991212;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 0 3rem;
+}
+
+.noMailNotice>* {
+    flex-grow: 1;
+    display: grid;
+    place-items: center;
+}
+
+.noMailNotice button {
+    display: inline;
+    left: 0;
+    background-color: #991212;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#noMailClose {
+    display: absolute !important;
+    right: 0;
+}
+
+#noMailClose button {
+    border-radius: 500vh;
+    border: 0;
+}

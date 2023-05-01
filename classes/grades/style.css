@@ -1,0 +1,106 @@
+main {
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: min-content 1fr min-content;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "class_title class_edit" "class-main_content class-main_content" "grade_add grade_add";
+}
+
+.class_title {
+    grid-area: class_title;
+}
+
+.class_edit {
+    grid-area: class_edit;
+    font-size: 2rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.class_title h1 {
+    margin: 1rem;
+}
+
+
+/* 
+Main views
+*/
+
+.class-main_content {
+    grid-area: class-main_content;
+    overflow: hidden;
+}
+
+.gradelist {
+    width: calc(100% - 1rem);
+    margin: 0.5rem;
+    overflow: auto;
+    max-height: 100%;
+    padding: 1rem;
+    background-color: var(--background2-color);
+    border-radius: 0.5rem;
+}
+
+.grade_entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.5rem 1rem;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "grade_type grade" "grade_date grade";
+    margin-bottom: 1rem;
+}
+
+.grade_entry:last-child {
+    margin-bottom: 0;
+}
+
+.grade {
+    grid-area: grade;
+    font-size: 2.5rem;
+    text-align: end;
+}
+
+.grade_type {
+    grid-area: grade_type;
+    font-size: 1.5rem;
+}
+
+.grade_date {
+    grid-area: grade_date;
+}
+
+.statistics {
+    display: none;
+}
+
+
+/* 
+Button to add grades
+*/
+
+.grade_add {
+    grid-area: grade_add;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background-color: var(--background2-color);
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.grade_add>div>i {
+    color: var(--accent-color);
+}
+
+
+/* No grades */
+
+.nogrades {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}

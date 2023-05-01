@@ -1,0 +1,32 @@
+.overlays {
+    display: block;
+    position: absolute;
+    z-index: -5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.5s;
+    background-color: #00000000;
+}
+
+.has-overlay_active {
+    z-index: 50;
+    background-color: #00000044;
+    backdrop-filter: blur(0.25rem);
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--background-color);
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.overlay-title {
+    margin-top: 0;
+}
