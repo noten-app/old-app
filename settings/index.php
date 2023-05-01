@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="/res/css/navbar.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./overlays.css">
+    <?php require("../res/php/noMailCheck.php"); ?>
 </head>
 
 <body>
