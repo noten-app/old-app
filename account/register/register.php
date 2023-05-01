@@ -64,5 +64,15 @@
         $stmt->bind_param('ssss', $username, $id, $password, $displayname);
         $stmt->execute();
         $stmt->close();
+
+        // Set session variables
+        $_SESSION["login_method"] = "login";
+        $_SESSION["user_name"] = $displayname;
+        $_SESSION["user_id"] = $id;
+        $_SESSION["setting_rounding"] = 2;
+        $_SESSION["beta_tester"] = 0;
+
+        // Redirect
+        header("Location: /");
     } else exit("Error inserting account into database! Please try again later.");
 ?>
