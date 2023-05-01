@@ -45,6 +45,14 @@
     // Check if passwords match
     if ($password != $password_rep) exit("Passwords do not match!");
 
+    // Check if username is valid
+    if (strlen($username) < 4) exit("Username must be at least 4 characters long!");
+
+    // Check if password is valid
+    if (strlen($password) < 8) exit("Password must be at least 8 characters long!");
+    if (strlen($password) > 72) exit("Password must be at most 72 characters long!");
+    if (!preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).*$/" , $password)) exit("Password must contain at least one lowercase letter, one uppercase letter, one number and one special character!");
+
     // Hash password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
