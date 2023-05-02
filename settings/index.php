@@ -218,7 +218,7 @@
                     <i class="fa-solid fa-file-arrow-down"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/changelog/', '_blank')">
+            <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/changelogs/', '_blank')">
                 <div class="dropdown_container-name">
                     About this version
                 </div>
