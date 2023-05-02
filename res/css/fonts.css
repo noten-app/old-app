@@ -10,6 +10,7 @@
     url('/res/fonts/inter-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
     url('/res/fonts/inter-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
     url('/res/fonts/inter-v12-latin-regular.svg#Inter') format('svg');
+    font-display: swap;
 }
 
 
@@ -25,6 +26,7 @@
     url('/res/fonts/dosis-v27-latin-800.woff') format('woff'), /* Modern Browsers */
     url('/res/fonts/dosis-v27-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
     url('/res/fonts/dosis-v27-latin-800.svg#Dosis') format('svg');
+    font-display: swap;
 }
 
 
@@ -40,4 +42,5 @@
     url('/res/fonts/ubuntu-v20-latin-500.woff') format('woff'), /* Modern Browsers */
     url('/res/fonts/ubuntu-v20-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
     url('/res/fonts/ubuntu-v20-latin-500.svg#Ubuntu') format('svg');
+    font-display: swap;
 }
