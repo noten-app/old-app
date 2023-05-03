@@ -33,6 +33,16 @@
         $classes = $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    // Order homework by deadline in arrays - arrays by date
+    $homework_ordered = array();
+    foreach($homework as $task) {
+        if(!array_key_exists($task["deadline"], $homework_ordered)) {
+            $homework_ordered[$task["deadline"]] = array();
+        }
+        $homework_ordered[$task["deadline"]][] = $task;
+    }
+    ksort($homework_ordered);
+
     // DB Con close
     $con->close();
 ?>
@@ -96,18 +106,36 @@
     <main id="main">
         <div class="homework_list">
             <?php 
-            foreach ($homework as $hw_entry) {
-                echo '<div class="homework_entry">';
-                echo '<div class="classname">';
-                foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
-                echo '</div><div class="deadline">'.$hw_entry["deadline"].'</div>';
-                echo '<div class="task">'.$hw_entry["text"].'</div>';
-                echo '<div class="dot"><i class="fa-regular fa-circle"></i></div>';
+            // foreach ($homework as $hw_entry) {
+            //     echo '<div class="homework_entry">';
+            //     echo '<div class="classname">';
+            //     foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
+            //     echo '</div><div class="deadline">'.$hw_entry["deadline"].'</div>';
+            //     echo '<div class="task">'.$hw_entry["text"].'</div>';
+            //     echo '<div class="dot"><i class="fa-regular fa-circle"></i></div>';
+            //     echo '</div>';
+            // }
+            foreach($homework_ordered as $hw_dategroup){
+                echo '<div class="homework_deadline';
+                if(strtotime($hw_dategroup[0]["deadline"]) < strtotime("today")) echo ' homework_deadline_late';
+                if(strtotime($hw_dategroup[0]["deadline"]) < strtotime("tomorrow") && strtotime($hw_dategroup[0]["deadline"]) > strtotime("today")) echo ' homework_deadline_soon';
+                echo '">';
+                echo '<div class="homework_deadline_date">'.date("d.m - l", strtotime($hw_dategroup[0]["deadline"])).'</div>';
+                echo '<div class="homework_deadline_tasks">';
+                foreach ($hw_dategroup as $hw_entry) {
+                    echo '<div class="homework_entry">';
+                    echo '<div class="classname">';
+                    foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
+                    echo '</div><div class="task">'.$hw_entry["text"].'</div>';
+                    echo '<div class="dot"><i class="fa-regular fa-circle"></i></div>';
+                    echo '</div>';
+                }
+                echo '</div>';
                 echo '</div>';
             }
             ?>
         </div>
-        <div class="homework_add">
+        <div class="homework_add" onclick="location.assign('./add/')">
             <div>Add homework <i class="fas fa-plus"></i></div>
         </div>
     </main>

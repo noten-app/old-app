@@ -12,6 +12,25 @@ main {
     grid-area: homework_list;
     width: calc(100% - 1rem);
     margin: 0.5rem;
+    margin-bottom: 0;
+    overflow: auto;
+}
+
+.homework_deadline {
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    background-color: var(--background3-color);
+}
+
+.homework_deadline_late,
+.homework_deadline_soon {
+    background-color: #8f111a;
+}
+
+.homework_deadline_date {
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
 }
 
 .homework_entry {
