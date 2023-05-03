@@ -73,27 +73,25 @@
                 <i class="fas fa-home"></i>
             </div>
         </a>
-        <?php if(in_array("calendar", $config_disabled_tabs)) echo "<!--" ?>
+        <?php if($_SESSION["beta_tester"] == 1){ ?>
         <a href="/calendar/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-alt"></i>
             </div>
         </a>
-        <?php if(in_array("calendar", $config_disabled_tabs)) echo "-->" ?>
-        <?php if(in_array("homework", $config_disabled_tabs)) echo "<!--" ?>
+        <?php } if($_SESSION["beta_tester"] == 1){ ?>
         <a href="/homework/" class="nav-link nav-active">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-check"></i>
             </div>
         </a>
-        <?php if(in_array("homework", $config_disabled_tabs)) echo "-->" ?>
-        <?php if(in_array("classes", $config_disabled_tabs)) echo "<!--" ?>
+        
+        <?php } ?>
         <a href="/classes/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-book"></i>
             </div>
         </a>
-        <?php if(in_array("classes", $config_disabled_tabs)) echo "-->" ?>
     </nav>
     <main id="main">
         <div class="homework_list">
