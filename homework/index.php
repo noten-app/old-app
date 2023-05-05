@@ -118,7 +118,7 @@
             foreach($homework_ordered as $hw_dategroup){
                 echo '<div class="homework_deadline';
                 if(strtotime($hw_dategroup[0]["deadline"]) < strtotime("today")) echo ' homework_deadline_late';
-                if(strtotime($hw_dategroup[0]["deadline"]) < strtotime("tomorrow") && strtotime($hw_dategroup[0]["deadline"]) > strtotime("today")) echo ' homework_deadline_soon';
+                if(strtotime($hw_dategroup[0]["deadline"]) == strtotime("today")) echo ' homework_deadline_soon';
                 echo '">';
                 echo '<div class="homework_deadline_date">'.date("d.m - l", strtotime($hw_dategroup[0]["deadline"])).'</div>';
                 echo '<div class="homework_deadline_tasks">';
@@ -128,6 +128,17 @@
                     foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
                     echo '</div><div class="task">'.$hw_entry["text"].'</div>';
                     echo '<div class="dot"><i class="fa-regular fa-circle"></i></div>';
+                    switch ($hw_entry["type"]) {
+                        case 'b':
+                            echo '<div class="type_badge"><i class="fa-solid fa-book"></i></div>';
+                            break;
+                        case 'w':
+                            echo '<div class="type_badge"><i class="fa-solid fa-sheet-plastic"></i></div>';
+                            break;
+                        case 'v':
+                            echo '<div class="type_badge"><i class="fa-solid fa-language"></i></div>';
+                            break;
+                    }
                     echo '</div>';
                 }
                 echo '</div>';

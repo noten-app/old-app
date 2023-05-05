@@ -23,9 +23,12 @@ main {
     background-color: var(--background3-color);
 }
 
-.homework_deadline_late,
-.homework_deadline_soon {
+.homework_deadline_late {
     background-color: #8f111a;
+}
+
+.homework_deadline_soon {
+    background-color: var(--accent-color);
 }
 
 .homework_deadline_date {
@@ -34,6 +37,7 @@ main {
 }
 
 .homework_entry {
+    position: relative;
     display: grid;
     padding: 0.5rem;
     grid-template-columns: auto 1fr auto;
@@ -53,6 +57,14 @@ main {
 .homework_entry:first-child {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+}
+
+.type_badge {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.5rem;
+    color: var(--text-color);
 }
 
 .classname {
