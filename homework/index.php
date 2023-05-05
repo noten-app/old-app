@@ -114,15 +114,6 @@ $con->close();
     <main id="main">
         <div class="homework_list">
             <?php
-            // foreach ($homework as $hw_entry) {
-            //     echo '<div class="homework_entry">';
-            //     echo '<div class="classname">';
-            //     foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
-            //     echo '</div><div class="deadline">'.$hw_entry["deadline"].'</div>';
-            //     echo '<div class="task">'.$hw_entry["text"].'</div>';
-            //     echo '<div class="dot"><i class="fa-regular fa-circle"></i></div>';
-            //     echo '</div>';
-            // }
             foreach ($homework_ordered as $hw_dategroup) {
                 echo '<div class="homework_deadline';
                 if (strtotime($hw_dategroup[0]["deadline"]) < strtotime("today")) echo ' homework_deadline_late';
