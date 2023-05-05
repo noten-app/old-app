@@ -125,9 +125,9 @@ $con->close();
                     echo '<div class="homework_entry">';
                     echo '<div class="classname">';
                     foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
-                    echo '</div><div class="task">' . $hw_entry["text"] . '</div>';
-                    if($hw_entry["status"] == 0) echo '<div class="dot"><i class="fa-regular fa-circle"></i></div>';
-                    else echo '<div class="dot"><i class="fa-regular fa-check-circle"></i></div>';
+                    echo '</div><div class="task">' . $hw_entry["text"] . '</div><div class="dot" id="dot-'.$hw_entry["entry_id"].'" onclick="toggleState(\''.$hw_entry["entry_id"].'\')">';
+                    if($hw_entry["status"] == 0) echo '<i class="fa-regular fa-circle"></i></div>';
+                    else echo '<i class="fa-regular fa-check-circle"></i></div>';
                     switch ($hw_entry["type"]) {
                         case 'b':
                             echo '<div class="type_badge"><i class="fa-solid fa-book"></i></div>';
@@ -165,7 +165,9 @@ $con->close();
             <div>Add homework <i class="fas fa-plus"></i></div>
         </div>
     </main>
+    <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
+    <script src="state.js"></script>
 </body>
 
 </html>
