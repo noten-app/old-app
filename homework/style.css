@@ -36,6 +36,15 @@ main {
     font-size: 1.5rem;
 }
 
+.homework_empty {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: var(--background2-color);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .homework_showall {
     padding: 0.75rem;
     border-radius: 0.5rem;
