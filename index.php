@@ -55,12 +55,6 @@
             </div>
         </a>
         <?php if($_SESSION["beta_tester"] == 1){ ?>
-        <a href="/calendar/" class="nav-link">
-            <div class="navbar_icon">
-                <i class="fas fa-calendar-alt"></i>
-            </div>
-        </a>
-        <?php } if($_SESSION["beta_tester"] == 1){ ?>
         <a href="/homework/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-check"></i>
