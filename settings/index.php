@@ -59,7 +59,11 @@
         <div class="overlay" id="overlay_account">
             <h1 class="overlay-title">Account</h1>
             <div class="dropdown_container container_item">
-                <div class="dropdown_container-name">
+                <?php 
+                    if(isset($_SESSION['user_email'])) $mail_link = "edit";
+                    else $mail_link = "add";
+                ?>
+                <div class="dropdown_container-name" onclick="location.assign('https:\/\/accounttools.noten-app.de/email/<?=$mail_link?>/')">
                     <?php 
                         if(isset($_SESSION['user_email'])) echo "Change Email";
                         else echo "Add Email"; 
@@ -69,14 +73,14 @@
                     <i class="fa-solid fa-at"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item">
+            <!-- <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Change Username
                 </div>
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fa-solid fa-user"></i>
                 </div>
-            </div>
+            </div> -->
             <div class="dropdown_container container_item" onclick="changePW()">
                 <div class="dropdown_container-name">
                     Change Password
@@ -129,6 +133,14 @@
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
+            <div class="dropdown_container container_item" onclick="window.open('https:\/\/themesjs.de/', '_blank');">
+                <div class="dropdown_container-name">
+                    Themes.js
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
         </div>
     </div>
     <main id="main">
@@ -143,7 +155,7 @@
         </div>
         <span class="container-title">Grading</span>
         <div class="group_container" id="grade-settings">
-            <div class="container_item">
+            <!-- <div class="container_item">
                 <div class="button_divider">
                     <div class="button_divider-button1 button_divider-button_active">
                         Grades<br>1,0 - 6,0
@@ -152,7 +164,7 @@
                         Points<br>0 - 15
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="container_item">
                 Decimals (Rounding)
                 <div class="button_divider">
@@ -169,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container_item">
+            <!-- <div class="container_item">
                 Show Date
                 <div class="button_divider">
                     <div class="button_divider-button1 button_divider-button_active">
@@ -179,7 +191,7 @@
                         No
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <span class="container-title">Sorting settings</span>
         <div class="group_container" id="grade-settings">
@@ -198,7 +210,7 @@
                 </div>
             </div>
         </div>
-        <span class="container-title">Location-based settings</span>
+        <!-- <span class="container-title">Location-based settings</span>
         <div class="group_container" id="location-settings">
             <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
@@ -208,7 +220,7 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
-            <!-- <div class="dropdown_container container_item">
+            <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Region
                 </div>
@@ -223,8 +235,8 @@
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fas fa-chevron-down"></i>
                 </div>
-            </div> -->
-        </div>
+            </div>
+        </div> -->
         <span class="container-title">Advanced settings</span>
         <div class="group_container" id="location-settings">
             <div class="dropdown_container container_item" onclick="window.open('./export_grades.php', '_blank')">

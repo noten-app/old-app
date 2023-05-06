@@ -8,9 +8,5 @@ window.addEventListener("load", function() {
 }, false);
 
 function noMailOpen() {
-    if (window.location.toString().includes("/settings")) {
-        open_overlay('overlay_account');
-    } else {
-        window.location = "/settings";
-    }
+    if (!window.location.toString().includes("/settings")) window.location = "/settings";
 }

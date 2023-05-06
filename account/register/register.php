@@ -59,8 +59,18 @@
     // Generate ID
     $id = generateID();
 
+    // Check if ID does not already exist
+    while (true) {
+        $stmt = $con->prepare("SELECT id FROM ".config_table_name_accounts." WHERE id = ?");
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $stmt->store_result();
+        if ($stmt->num_rows == 0) break;
+        $id = generateID();
+    }
+
     // Insert account into database
-    if($stmt = $con->prepare("INSERT INTO ".config_table_name_accounts." (username, id, password, displayname, account_version) VALUES (?, ?, ?, ?, 3)")) {
+    if($stmt = $con->prepare("INSERT INTO ".config_table_name_accounts." (username, id, password, displayname, account_version, sorting) VALUES (?, ?, ?, ?, 3, 'average')")) {
         $stmt->bind_param('ssss', $username, $id, $password, $displayname);
         $stmt->execute();
         $stmt->close();
@@ -70,6 +80,7 @@
         $_SESSION["user_name"] = $displayname;
         $_SESSION["user_id"] = $id;
         $_SESSION["setting_rounding"] = 2;
+        $_SESSION["setting_sorting"] = 'average';
         $_SESSION["beta_tester"] = 0;
 
         // Redirect
