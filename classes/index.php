@@ -17,9 +17,15 @@
     );
     if(mysqli_connect_errno()) exit("Error with the Database");
 
+    // Get sorting
+    $sorting = $_SESSION["setting_sorting"];
+    if($sorting == "average") $sorting_appendix = " ORDER BY average ASC";
+    else if($sorting == "alphabet") $sorting_appendix = " ORDER BY name ASC";
+    else if($sorting == "lastuse") $sorting_appendix = " ORDER BY last_used DESC";
+
     // Get all classes
     $classlist = array();
-    if($stmt = $con->prepare("SELECT name, color, id, last_used, average FROM ".config_table_name_classes." WHERE user_id = ?")) {
+    if($stmt = $con->prepare("SELECT name, color, id, last_used, average FROM ".config_table_name_classes." WHERE user_id = ?".$sorting_appendix)) {
         $stmt->bind_param("s", $_SESSION["user_id"]);
         $stmt->execute();
         $stmt->bind_result($class_name, $class_color, $class_id, $class_last_used, $class_grade_average);

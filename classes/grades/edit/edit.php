@@ -70,7 +70,16 @@
         $stmt->bind_param('sssss', $note, $type, $date, $grade_float, $grade_id);
         $stmt->execute();
         $stmt->close();
-        exit("success");
+
+        // Change class last used
+        if ($stmt = $con->prepare('UPDATE '.config_table_name_classes.' SET last_used = ? WHERE id = ?')) {
+            $stmt->bind_param('si', $date, $class_id);
+            $stmt->execute();
+            $stmt->close();
+            exit("success");
+        } else {
+            die("error");
+        }
     } else {
         die("error");
     }
