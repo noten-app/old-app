@@ -191,7 +191,7 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item">
+            <!-- <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Region
                 </div>
@@ -206,7 +206,7 @@
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fas fa-chevron-down"></i>
                 </div>
-            </div>
+            </div> -->
         </div>
         <span class="container-title">Advanced settings</span>
         <div class="group_container" id="location-settings">
