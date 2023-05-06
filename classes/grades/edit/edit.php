@@ -60,7 +60,7 @@
     if(!preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $date)) die("invalid-date");
 
     // Check if type is valid (k,m,o,t)
-    if(!preg_match("/^[kmot]$/", $type)) die("invalid-type");
+    if(!preg_match("/^[kmst]$/", $type)) die("invalid-type");
 
     // Check if note is valid (max 25 chars)
     if(strlen($note) > 25) die("invalid-note");
