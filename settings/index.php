@@ -59,7 +59,11 @@
         <div class="overlay" id="overlay_account">
             <h1 class="overlay-title">Account</h1>
             <div class="dropdown_container container_item">
-                <div class="dropdown_container-name">
+                <?php 
+                    if(isset($_SESSION['user_email'])) $mail_link = "edit";
+                    else $mail_link = "add";
+                ?>
+                <div class="dropdown_container-name" onclick="location.assign('https:\/\/accounttools.noten-app.de/email/<?=$mail_link?>/')">
                     <?php 
                         if(isset($_SESSION['user_email'])) echo "Change Email";
                         else echo "Add Email"; 
