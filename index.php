@@ -54,14 +54,11 @@
                 <i class="fas fa-home"></i>
             </div>
         </a>
-        <?php if($_SESSION["beta_tester"] == 1){ ?>
         <a href="/homework/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-check"></i>
             </div>
         </a>
-        
-        <?php } ?>
         <a href="/classes/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-book"></i>
