@@ -15,7 +15,7 @@ grade_add_button.addEventListener('click', () => {
             class: document.getElementById('class_id').innerText
         },
         success: (data) => {
-            if (data === 'success') location.assign("/grades/class?class=" + document.getElementById('class_id').innerText);
+            if (data === 'success') location.assign("/classes/grades/?class=" + document.getElementById('class_id').innerText);
             else {
                 console.log(data);
             }
