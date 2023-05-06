@@ -45,7 +45,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit a grade - <?=$class_name?> - NotenApp</title>
+    <title>Edit grade - <?=$class_name?> | Noten-App</title>
     <link rel="stylesheet" href="/res/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">
@@ -57,8 +57,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/res/img/favicon-16x16.png">
     <link rel="mask-icon" href="/res/img/safari-pinned-tab.svg" color="#eb660e">
     <link rel="shortcut icon" href="/res/img/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="NotenApp">
-    <meta name="application-name" content="NotenApp">
+    <meta name="apple-mobile-web-app-title" content="Noten-App">
+    <meta name="application-name" content="Noten-App">
     <meta name="msapplication-TileColor" content="#282c36">
     <meta name="msapplication-TileImage" content="/res/img/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
