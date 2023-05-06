@@ -73,14 +73,14 @@
                     <i class="fa-solid fa-at"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item">
+            <!-- <div class="dropdown_container container_item">
                 <div class="dropdown_container-name">
                     Change Username
                 </div>
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fa-solid fa-user"></i>
                 </div>
-            </div>
+            </div> -->
             <div class="dropdown_container container_item" onclick="changePW()">
                 <div class="dropdown_container-name">
                     Change Password
