@@ -216,7 +216,7 @@
                             case "t":
                                 echo "Test";
                                 break;
-                            case "o":
+                            case "s":
                                 echo "Other";
                                 break;
                             default:
