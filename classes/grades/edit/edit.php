@@ -2,11 +2,11 @@
 
     // Check login state
     session_start();
-    require("../../res/php/checkLogin.php");
+    require("../../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
     // Get config
-    require("../../config.php");
+    require("../../../config.php");
 
     // DB Connection
     $con = mysqli_connect(
