@@ -80,6 +80,7 @@
         $_SESSION["user_name"] = $displayname;
         $_SESSION["user_id"] = $id;
         $_SESSION["setting_rounding"] = 2;
+        $_SESSION["setting_sorting"] = 'average';
         $_SESSION["beta_tester"] = 0;
 
         // Redirect
