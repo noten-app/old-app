@@ -181,6 +181,25 @@
                 </div>
             </div>
         </div>
+        <span class="container-title">Sorting settings</span>
+        <div class="group_container" id="grade-settings">
+            <div class="container_item">
+                Classes
+                <div class="button_divider">
+                    <div <?php if($_SESSION["setting_sorting"] == "average") echo 'class="button_divider-button_active" ';?>onclick="setSorting('average');">
+                        Average<br>
+                        2
+                    </div>
+                    <div <?php if($_SESSION["setting_sorting"] == "alphabet") echo 'class="button_divider-button_active" ';?>onclick="setSorting('alphabet');">
+                        Alphabet<br>
+                        1,7
+                    </div>
+                    <div <?php if($_SESSION["setting_sorting"] == "lastuse") echo 'class="button_divider-button_active" ';?>onclick="setSorting('lastuse');">
+                        Last use<br>1,72
+                    </div>
+                </div>
+            </div>
+        </div>
         <span class="container-title">Location-based settings</span>
         <div class="group_container" id="location-settings">
             <div class="dropdown_container container_item">
@@ -289,6 +308,7 @@
     <script src="/res/js/themes/themes.js"></script>
     <script src="overlays.js"></script>
     <script src="rounding.js"></script>
+    <script src="sorting.js"></script>
 </body>
 
 </html>
