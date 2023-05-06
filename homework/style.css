@@ -12,9 +12,63 @@ main {
     grid-area: homework_list;
     width: calc(100% - 1rem);
     margin: 0.5rem;
+    margin-bottom: 0;
+    overflow: auto;
+}
+
+.homework_deadline {
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    background-color: var(--background3-color);
+}
+
+.homework_deadline_late {
+    background-color: #8f111a;
+}
+
+.homework_deadline_soon {
+    background-color: var(--accent-color);
+}
+
+.homework_deadline_date {
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+}
+
+.homework_empty {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: var(--background2-color);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.homework_showall {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: var(--background2-color);
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.homework_showall:hover {
+    color: var(--accent-color);
+}
+
+.homework_showall-text {
+    font-size: 1.5rem;
+    flex-grow: 1;
+}
+
+.homework_showall-icon {
+    font-size: 1.5rem;
 }
 
 .homework_entry {
+    position: relative;
     display: grid;
     padding: 0.5rem;
     grid-template-columns: auto 1fr auto;
@@ -36,6 +90,14 @@ main {
     border-top-right-radius: 0.5rem;
 }
 
+.type_badge {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.5rem;
+    color: var(--text-color);
+}
+
 .classname {
     grid-area: classname;
     font-size: 1rem;
@@ -50,6 +112,7 @@ main {
 .task {
     grid-area: task;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .dot {
