@@ -3,6 +3,7 @@ const task_input = document.getElementById('task-input');
 const date_input_input = document.getElementById('date_input-input');
 const class_edit_button = document.getElementById('task_save');
 const task_mark_undone_button = document.getElementById('task_mark_undone');
+const task_delete_button = document.getElementById('task_delete');
 
 class_edit_button.addEventListener('click', () => {
     $.ajax({
@@ -54,6 +55,23 @@ task_mark_undone_button.addEventListener('click', () => {
                     }
                 }
             });
+        }
+    });
+});
+
+task_delete_button.addEventListener('click', () => {
+    $.ajax({
+        url: './delete.php',
+        type: 'POST',
+        data: {
+            task_id: task_id
+        },
+        success: (data) => {
+            if (data == "success") {
+                location.assign("/homework");
+            } else {
+                console.log(data);
+            }
         }
     });
 });
