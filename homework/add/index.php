@@ -16,6 +16,24 @@
         config_db_name
     );
     if(mysqli_connect_errno()) exit("Error with the Database");
+    
+    // Get all classes
+    $classlist = array();
+    if($stmt = $con->prepare("SELECT name, color, id, last_used, average FROM ".config_table_name_classes." WHERE user_id = ?")) {
+        $stmt->bind_param("s", $_SESSION["user_id"]);
+        $stmt->execute();
+        $stmt->bind_result($class_name, $class_color, $class_id, $class_last_used, $class_grade_average);
+        while ($stmt->fetch()) {
+            $classlist[] = array(
+                "name" => $class_name,
+                "color" => $class_color,
+                "id" => $class_id,
+                "last_used" => $class_last_used,
+                "average" => $class_grade_average
+            );
+        }
+        $stmt->close();
+    }
 
     // DB Con close
     $con->close();
@@ -28,7 +46,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a class | Noten-App</title>
+    <title>Add your Homework | Noten-App</title>
     <link rel="stylesheet" href="/res/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">
@@ -56,7 +74,7 @@
                 <i class="fas fa-home"></i>
             </div>
         </a>
-        <a href="/classes/" class="nav-link">
+        <a href="/homework/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fa-solid fa-arrow-left"></i>
             </div>
@@ -64,78 +82,66 @@
     </nav>
     <main id="main">
         <div class="class-main_content">
-            <div class="name">
-                <div class="name-title">
-                    Classname
+            <div class="class">
+                <div class="class-title">
+                    Class
                 </div>
-                <div class="name-container">
-                    <input type="text" id="name-input" placeholder="Classname">
-                </div>
-            </div>
-            <div class="grading">
-                <div class="grading-title">
-                    Grading - General
-                </div>
-                <div class="grading-options">
-                    <div class="grading-option">
-                        <div class="grading-option-title">Exams</div>
-                        <div class="grading-option-input">
-                            <input type="number" id="grading_option-type_k" value="2"/>
-                        </div>
-                    </div>
-                    <div class="grading-option">
-                        <div class="grading-option-title">Verbal</div>
-                        <div class="grading-option-input">
-                        <input type="number" id="grading_option-type_m" value="1"/>
-                        </div>
-                    </div>
-                    <div class="grading-option" id="grading-option_tests">
-                        <div class="grading-option-title">Tests</div>
-                        <div class="grading-option-input">
-                            <input type="number" id="grading_option-type_t" value="1"/>
-                        </div>
-                    </div>
-                    <div class="grading-option">
-                        <div class="grading-option-title">Other</div>
-                        <div class="grading-option-input">
-                            <input type="number" id="grading_option-type_s" value="0"/>
-                        </div>
-                    </div>
+                <div class="class-container">
+                    <select name="class-selector" id="class-selector">
+                        <?php
+                            foreach($classlist as $class) {
+                                echo '<option value="'.$class["id"].'">'.$class["name"].'</option>';
+                            }
+                        ?>
+                    </select>
                 </div>
             </div>
-            <div class="test-behaviour">
-                <div class="test-behaviour-title">
-                    Grading - Test Behaviour
+            <div class="homework_type">
+                <div class="homework_type-title">
+                    Homework Type
                 </div>
-                <div class="test-behaviour-switch">
+                <div class="homework_type-switch">
                     <div class="button_divider">
-                        <div class="button_divider-button_active" id="test-behaviour-switch_all1">
-                            All Tests<br>1 Exam
+                        <div class="button_divider-button button_divider-button_active" type-letter="b">
+                            Book
                         </div>
-                        <div id="test-behaviour-switch_custom">
-                            Custom
+                        <div class="button_divider-button" type-letter="v">
+                            Vocabulary
+                        </div>
+                        <div class="button_divider-button" type-letter="w">
+                            Worksheet
+                        </div>
+                        <div class="button_divider-button" type-letter="o">
+                            Other
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="color">
-                <div class="color-title">
-                    Class-Color
+            <div class="task">
+                <div class="task-title">
+                    Task
                 </div>
-                <div class="color-input">
-                    <!-- Random color lighter than #444444 -->
-                    <input type="color" id="color_input-input" value="<?php echo sprintf('#%06X', mt_rand(0, 0xFFFFFF)); ?>">
+                <div class="task-container">
+                    <input type="text" id="task-input" maxlength="25">
+                </div>
+            </div>
+            <div class="date">
+                <div class="date-title">
+                    Due-Date
+                </div>
+                <div class="date-input">
+                    <input type="date" id="date_input-input" value="<?=date("Y-m-d", time() + (60*60*24))?>">
                 </div>
             </div>
         </div>
         <div class="class_add">
-            <div>Create class <i class="fas fa-plus"></i></div>
+            <div>Create task <i class="fas fa-plus"></i></div>
         </div>
         <div id="class_id" style="display: none;"><?=$_GET["class"]?></div>
     </main>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
-    <script src="./test-switch.js"></script>
+    <script src="./type-switch.js"></script>
     <script src="./add-class.js"></script>
 </body>
 

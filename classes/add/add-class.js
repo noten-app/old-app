@@ -23,7 +23,7 @@ class_add_button.addEventListener('click', () => {
             console.log(data);
             if (!data.startsWith("missing")) {
                 data = JSON.parse(data);
-                location.assign("/classes/class?class=" + data.classID);
+                location.assign("/classes/grades?class=" + data.classID);
             } else {
                 console.log(data);
             }

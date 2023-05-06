@@ -2,11 +2,11 @@
 
     // Check login state
     session_start();
-    require("../../res/php/checkLogin.php");
+    require("../../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
     // Get config
-    require("../../config.php");
+    require("../../../config.php");
 
     // DB Connection
     $con = mysqli_connect(
@@ -60,7 +60,7 @@
     if(!preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $date)) die("invalid-date");
 
     // Check if type is valid (k,m,o,t)
-    if(!preg_match("/^[kmot]$/", $type)) die("invalid-type");
+    if(!preg_match("/^[kmst]$/", $type)) die("invalid-type");
 
     // Check if note is valid (max 25 chars)
     if(strlen($note) > 25) die("invalid-note");
@@ -70,7 +70,16 @@
         $stmt->bind_param('sssss', $note, $type, $date, $grade_float, $grade_id);
         $stmt->execute();
         $stmt->close();
-        exit("success");
+
+        // Change class last used
+        if ($stmt = $con->prepare('UPDATE '.config_table_name_classes.' SET last_used = ? WHERE id = ?')) {
+            $stmt->bind_param('si', $date, $class_id);
+            $stmt->execute();
+            $stmt->close();
+            exit("success");
+        } else {
+            die("error");
+        }
     } else {
         die("error");
     }

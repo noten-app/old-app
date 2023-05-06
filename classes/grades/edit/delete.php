@@ -2,11 +2,11 @@
 
     // Check login state
     session_start();
-    require("../../res/php/checkLogin.php");
+    require("../../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
     // Get config
-    require("../../config.php");
+    require("../../../config.php");
 
     // DB Connection
     $con = mysqli_connect(
@@ -38,7 +38,16 @@
         $stmt->bind_param('s', $grade_id);
         $stmt->execute();
         $stmt->close();
-        exit("success");
+
+        // Change class last used
+        if ($stmt = $con->prepare('UPDATE '.config_table_name_classes.' SET last_used = ? WHERE id = ?')) {
+            $stmt->bind_param('si', $date, $class_id);
+            $stmt->execute();
+            $stmt->close();
+            exit("success");
+        } else {
+            die("error");
+        }
     } else {
         die("error");
     }

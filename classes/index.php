@@ -17,9 +17,15 @@
     );
     if(mysqli_connect_errno()) exit("Error with the Database");
 
+    // Get sorting
+    $sorting = $_SESSION["setting_sorting"];
+    if($sorting == "average") $sorting_appendix = " ORDER BY average ASC";
+    else if($sorting == "alphabet") $sorting_appendix = " ORDER BY name ASC";
+    else if($sorting == "lastuse") $sorting_appendix = " ORDER BY last_used DESC";
+
     // Get all classes
     $classlist = array();
-    if($stmt = $con->prepare("SELECT name, color, id, last_used, average FROM ".config_table_name_classes." WHERE user_id = ?")) {
+    if($stmt = $con->prepare("SELECT name, color, id, last_used, average FROM ".config_table_name_classes." WHERE user_id = ?".$sorting_appendix)) {
         $stmt->bind_param("s", $_SESSION["user_id"]);
         $stmt->execute();
         $stmt->bind_result($class_name, $class_color, $class_id, $class_last_used, $class_grade_average);
@@ -48,7 +54,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classes - NotenApp</title>
+    <title>Classes | Noten-App</title>
     <link rel="stylesheet" href="/res/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">
@@ -60,8 +66,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/res/img/favicon-16x16.png">
     <link rel="mask-icon" href="/res/img/safari-pinned-tab.svg" color="#eb660e">
     <link rel="shortcut icon" href="/res/img/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="NotenApp">
-    <meta name="application-name" content="NotenApp">
+    <meta name="apple-mobile-web-app-title" content="Noten-App">
+    <meta name="application-name" content="Noten-App">
     <meta name="msapplication-TileColor" content="#282c36">
     <meta name="msapplication-TileImage" content="/res/img/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -76,27 +82,16 @@
                 <i class="fas fa-home"></i>
             </div>
         </a>
-        <?php if(in_array("calendar", $config_disabled_tabs)) echo "<!--" ?>
-        <a href="/calendar/" class="nav-link">
-            <div class="navbar_icon">
-                <i class="fas fa-calendar-alt"></i>
-            </div>
-        </a>
-        <?php if(in_array("calendar", $config_disabled_tabs)) echo "-->" ?>
-        <?php if(in_array("homework", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/homework/" class="nav-link">
             <div class="navbar_icon">
                 <i class="fas fa-calendar-check"></i>
             </div>
         </a>
-        <?php if(in_array("homework", $config_disabled_tabs)) echo "-->" ?>
-        <?php if(in_array("classes", $config_disabled_tabs)) echo "<!--" ?>
         <a href="/classes/" class="nav-link nav-active">
             <div class="navbar_icon">
                 <i class="fas fa-book"></i>
             </div>
         </a>
-        <?php if(in_array("classes", $config_disabled_tabs)) echo "-->" ?>
     </nav>
     <main id="main">
         <div class="class_list">

@@ -23,11 +23,11 @@
     if ($stmt->num_rows == 0) exit("Account $username not found");
 
     // Get id, salt and password hash from database
-    if ($stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, beta_tester FROM ".config_table_name_accounts." WHERE username = ?")) {
+    if ($stmt = $con->prepare("SELECT id, displayname, password, email, account_version, rounding, sorting, beta_tester FROM ".config_table_name_accounts." WHERE username = ?")) {
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($id, $displayname, $password_hash, $email, $account_version, $setting_rounding, $beta_tester);
+        $stmt->bind_result($id, $displayname, $password_hash, $email, $account_version, $setting_rounding, $setting_sorting, $beta_tester);
         $stmt->fetch();
 
         // Add salt and password and check if right
@@ -42,6 +42,7 @@
         $_SESSION["user_id"] = $id;
         $_SESSION["user_email"] = $email;
         $_SESSION["setting_rounding"] = $setting_rounding;
+        $_SESSION["setting_sorting"] = $setting_sorting;
         $_SESSION["beta_tester"] = $beta_tester;
 
         // Redirect to app

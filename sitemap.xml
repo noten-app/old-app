@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://app.noten-app.de/account/</loc>
+        <priority>1</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <loc>https://app.noten-app.de/account/login/</loc>
+        <priority>0.5</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <loc>https://app.noten-app.de/account/register/</loc>
+        <priority>0.5</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <loc>https://app.noten-app.de/account/register/reset-password</loc>
+        <priority>0.1</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+</urlset>
+<!-- Only the account pages are given. No other pages should be indexed because they require a user account. -->
