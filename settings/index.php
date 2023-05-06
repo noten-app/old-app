@@ -187,15 +187,13 @@
                 Classes
                 <div class="button_divider">
                     <div <?php if($_SESSION["setting_sorting"] == "average") echo 'class="button_divider-button_active" ';?>onclick="setSorting('average');">
-                        Average<br>
-                        2
+                        Average
                     </div>
                     <div <?php if($_SESSION["setting_sorting"] == "alphabet") echo 'class="button_divider-button_active" ';?>onclick="setSorting('alphabet');">
-                        Alphabet<br>
-                        1,7
+                        Alphabet
                     </div>
                     <div <?php if($_SESSION["setting_sorting"] == "lastuse") echo 'class="button_divider-button_active" ';?>onclick="setSorting('lastuse');">
-                        Last use<br>1,72
+                        Last use
                     </div>
                 </div>
             </div>
