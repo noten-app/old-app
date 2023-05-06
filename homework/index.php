@@ -125,7 +125,8 @@ $con->close();
                         echo '<div class="homework_entry">';
                         echo '<div class="classname">';
                         foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
-                        echo '</div><div class="task">' . $hw_entry["text"] . '</div><div class="dot" id="dot-'.$hw_entry["entry_id"].'" onclick="toggleState(\''.$hw_entry["entry_id"].'\')">';
+                        echo '</div><div class="task" onclick="location.assign(\'./edit/?task='.$hw_entry["entry_id"].'\')">' . $hw_entry["text"] . '</div>';
+                        echo '<div class="dot" id="dot-'.$hw_entry["entry_id"].'" onclick="toggleState(\''.$hw_entry["entry_id"].'\')">';
                         if($hw_entry["status"] == 0) echo '<i class="fa-regular fa-circle"></i></div>';
                         else echo '<i class="fa-regular fa-check-circle"></i></div>';
                         switch ($hw_entry["type"]) {

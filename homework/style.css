@@ -112,6 +112,7 @@ main {
 .task {
     grid-area: task;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .dot {
