@@ -31,6 +31,9 @@
     if(!isset($task) || strlen($task) == 0) die("missing-task");
     if(strlen($task) > 26) die("too-long-task");
 
+    // Encode task
+    $task = htmlentities($task);
+
     // Create given-date
     $date_given = date("Y-m-d");
 
