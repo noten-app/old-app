@@ -149,7 +149,8 @@
             </div>
         </div>
         <div class="class_edit">
-            <div>Edit task <i class="fas fa-pen"></i></div>
+            <div id="task_save"><i class="fas fa-floppy-disk"></i></div>
+            <div id="task_mark_undone"><i class="fa-regular fa-circle-xmark"></i></div>
         </div>
         <div id="class_id" style="display: none;"><?=$_GET["class"]?></div>
     </main>

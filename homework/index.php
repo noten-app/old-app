@@ -128,6 +128,7 @@ $con->close();
                         echo '</div><div class="task" onclick="location.assign(\'./edit/?task='.$hw_entry["entry_id"].'\')">' . $hw_entry["text"] . '</div>';
                         echo '<div class="dot" id="dot-'.$hw_entry["entry_id"].'" onclick="toggleState(\''.$hw_entry["entry_id"].'\')">';
                         if($hw_entry["status"] == 0) echo '<i class="fa-regular fa-circle"></i></div>';
+                        else if($hw_entry["status"] == 2) echo '<i class="fa-regular fa-circle-xmark"></i></div>';
                         else echo '<i class="fa-regular fa-check-circle"></i></div>';
                         switch ($hw_entry["type"]) {
                             case 'b':

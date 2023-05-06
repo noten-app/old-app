@@ -204,15 +204,21 @@ Button to edit classes
 
 .class_edit {
     grid-area: class_edit;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: row;
     padding: 1rem;
     background-color: var(--background2-color);
     margin: 0.5rem;
     border-radius: 0.5rem;
-    cursor: pointer;
+}
+
+.class_edit div {
+    flex-grow: 1;
+    text-align: center;
 }
 
 .class_edit>div>i {
     color: var(--accent-color);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
