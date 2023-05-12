@@ -113,6 +113,34 @@ main {
     grid-area: task;
     font-size: 1.5rem;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 1.5rem;
+}
+
+.task span {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.scroll {
+    animation: scroll 10s linear infinite;
+    scroll-behavior: smooth;
+}
+
+@keyframes scroll {
+    20% {
+        transform: translateX(0%);
+    }
+    90% {
+        transform: translateX(calc(-100% + 100vw - 8rem));
+    }
+    95% {
+        transform: translateX(calc(-100% + 100vw - 8rem));
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 .dot {
@@ -126,7 +154,6 @@ main {
 .dot>i {
     display: block;
 }
-
 
 /* 
 Button to add homework

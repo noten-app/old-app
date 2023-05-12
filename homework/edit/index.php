@@ -136,7 +136,7 @@
                     Task
                 </div>
                 <div class="task-container">
-                    <input type="text" id="task-input" maxlength="25" value="<?=$task["text"]?>">
+                    <input type="text" id="task-input" maxlength="75" value="<?=$task["text"]?>">
                 </div>
             </div>
             <div class="date">

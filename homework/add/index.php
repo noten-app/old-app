@@ -122,7 +122,7 @@
                     Task
                 </div>
                 <div class="task-container">
-                    <input type="text" id="task-input" maxlength="25">
+                    <input type="text" id="task-input" maxlength="75">
                 </div>
             </div>
             <div class="date">
@@ -144,5 +144,4 @@
     <script src="./type-switch.js"></script>
     <script src="./add-class.js"></script>
 </body>
-
 </html>

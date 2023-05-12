@@ -115,7 +115,7 @@ $con->close();
                         echo '<div class="homework_entry">';
                         echo '<div class="classname">';
                         foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
-                        echo '</div><div class="task" onclick="location.assign(\'./edit/?task='.$hw_entry["entry_id"].'\')">' . $hw_entry["text"] . '</div>';
+                        echo '</div><div class="task" onclick="location.assign(\'./edit/?task='.$hw_entry["entry_id"].'\')"><span>' . $hw_entry["text"] . '</span></div>';
                         echo '<div class="dot" id="dot-'.$hw_entry["entry_id"].'" onclick="toggleState(\''.$hw_entry["entry_id"].'\')">';
                         if($hw_entry["status"] == 0) echo '<i class="fa-regular fa-circle"></i></div>';
                         else if($hw_entry["status"] == 2) echo '<i class="fa-regular fa-circle-xmark"></i></div>';
@@ -163,6 +163,10 @@ $con->close();
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
     <script src="state.js"></script>
+    <script>
+        // Check which tasks are overflowing
+        document.querySelectorAll(".task").forEach(task => { if(task.offsetWidth < task.querySelector("span").scrollWidth) task.querySelector("span").classList.add("scroll")});
+    </script>
 </body>
 
 </html>
