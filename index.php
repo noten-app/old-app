@@ -33,6 +33,37 @@
     if(!isset($status_count[0])) $status_count[0] = 0;
     if(!isset($status_count[1])) $status_count[1] = 0;
     if(!isset($status_count[2])) $status_count[2] = 0;
+
+    // Count grades
+    if ($stmt = $con->prepare("SELECT COUNT(*) FROM ".config_table_name_grades." WHERE user_id = ?")) {
+        $stmt->bind_param("s", $_SESSION["user_id"]);
+        $stmt->execute();
+        $stmt->bind_result($num_of_grades);
+        $stmt->fetch();
+        $stmt->close();
+    }
+
+    // Get last inserted grade
+    if ($stmt = $con->prepare("SELECT grade FROM ".config_table_name_grades." WHERE user_id = ? ORDER BY id DESC LIMIT 1")) {
+        $stmt->bind_param("s", $_SESSION["user_id"]);
+        $stmt->execute();
+        $stmt->bind_result($last_grade);
+        $stmt->fetch();
+        $stmt->close();
+    }
+
+    // Calculate average
+    if ($stmt = $con->prepare("SELECT average FROM ".config_table_name_classes." WHERE user_id = ?")) {
+        $stmt->bind_param("s", $_SESSION["user_id"]);
+        $stmt->execute();
+        $stmt->bind_result($average);
+        $average_list = [];
+        while($stmt->fetch()) {
+            if ($average != 0) array_push($average_list, $average);
+        }
+        $stmt->close();
+        $average = array_sum($average_list) / count($average_list);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +114,7 @@
         </a>
     </nav>
     <main id="main">
-        <div class="homework_overview">
+        <div class="homework_overview card">
             <div class="homework">
                 <canvas id="homework_status_chart"></canvas>
             </div>
@@ -97,6 +128,14 @@
                     <i class="fa-solid fa-circle-half-stroke"></i>
                 </div>
             </div>
+        </div>
+        <div class="grades_overview card">
+            <div class="grade_average-value grades-value noborder"><?=number_format($average, $_SESSION["setting_rounding"], '.', '')?></div>
+            <div class="grade_average-label grades-label noborder">Total Average</div>
+            <div class="num_of_grades-value grades-value"><?=$num_of_grades?></div>
+            <div class="num_of_grades-label grades-label">Number of Grades</div>
+            <div class="last_grade-value grades-value"><?=number_format($last_grade, $_SESSION["setting_rounding"], '.', '')?></div>
+            <div class="last_grade-label grades-label">Last grade</div>
         </div>
     </main>
     <script src="/res/js/themes/themes.js"></script>

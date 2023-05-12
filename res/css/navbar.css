@@ -58,6 +58,5 @@ nav i {
 
 #theme-icon div {
     width: min-content;
-    height: min-content;
     transition: transform 0.5s cubic-bezier(.5, -0.5, .5, 1.5);
 }

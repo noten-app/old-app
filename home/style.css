@@ -7,8 +7,16 @@ main {
     overflow-x: hidden;
 }
 
-.homework_overview {
+.card {
     margin: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* 
+Homework section
+*/
+
+.homework_overview {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr 1fr;
@@ -21,6 +29,7 @@ main {
     background-color: var(--background2-color);
     border-radius: 1rem;
 }
+
 
 .homework_button-settings {
     grid-area: homework_button-settings;
@@ -38,6 +47,7 @@ main {
 
 .homework {
     grid-area: homework;
+    overflow: hidden;
 }
 
 .homework>canvas {
@@ -53,4 +63,68 @@ main {
     color: var(--accent-color);
     font-size: 2rem;
     padding: 1rem;
+}
+
+/* 
+Grade overview
+*/
+.grades_overview {
+    background-color: var(--background2-color);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "grade_average-value num_of_grades-value last_grade-value"
+        "grade_average-label num_of_grades-label last_grade-label";
+}
+
+.num_of_grades-value {
+    grid-area: num_of_grades-value;
+}
+
+.grade_average-value {
+    grid-area: grade_average-value;
+}
+
+.last_grade-value {
+    grid-area: last_grade-value;
+}
+
+.last_grade-label {
+    grid-area: last_grade-label;
+}
+
+.num_of_grades-label {
+    grid-area: num_of_grades-label;
+}
+
+.grade_average-label {
+    grid-area: grade_average-label;
+}
+
+.grades-value {
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    border-left: 1px solid #888;
+    padding: 0 0.25rem;
+}
+.grades-value * {
+    display: block;
+}
+
+.grades-label {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-left: 1px solid #888;
+    padding: 0 0.5rem;
+}
+
+.noborder {
+    border: 0;
 }
