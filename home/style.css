@@ -40,8 +40,10 @@ main {
     grid-area: homework;
 }
 
-.homework>img {
+.homework>canvas {
     width: 100%;
+    padding: 0.5rem;
+    aspect-ratio: 1/1;
 }
 
 .homework_sidebutton div {

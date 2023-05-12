@@ -16,6 +16,23 @@
         config_db_name
     );
     if(mysqli_connect_errno()) exit("Error with the Database");
+
+    // Count homework status
+    // Count for status 0,1 or 2 seperately
+    if ($stmt = $con->prepare("SELECT status FROM ".config_table_name_homework." WHERE user_id = ?")) {
+        $stmt->bind_param("s", $_SESSION["user_id"]);
+        $stmt->execute();
+        $stmt->bind_result($status);
+        $status_list = [];
+        while($stmt->fetch()) {
+            array_push($status_list, $status);
+        }
+        $stmt->close();
+    }
+    $status_count = array_count_values($status_list);
+    if(!isset($status_count[0])) $status_count[0] = 0;
+    if(!isset($status_count[1])) $status_count[1] = 0;
+    if(!isset($status_count[2])) $status_count[2] = 0;
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +85,7 @@
     <main id="main">
         <div class="homework_overview">
             <div class="homework">
-                <img src="https://fakeimg.pl/1200x600/000,000/fff,255">
+                <canvas id="homework_status_chart"></canvas>
             </div>
             <div class="homework_sidebutton homework_button-settings" onclick="location.assign('/settings/');">
                 <div>
@@ -83,6 +100,40 @@
         </div>
     </main>
     <script src="/res/js/themes/themes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        new Chart("homework_status_chart", {
+            type: "doughnut",
+            data: {
+                labels: [
+                    'To Do',
+                    'Done',
+                    'Skipped'
+                ],
+                datasets: [{
+                    data: [<?=$status_count[0] ?>, <?=$status_count[1] ?>, <?=$status_count[2] ?>],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 235, 162)',
+                        'rgb(54, 54, 54)'
+                    ]
+                }]
+            },
+            options: {
+                borderWidth: 0,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: "Homework Status"
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>
