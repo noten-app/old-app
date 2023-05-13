@@ -211,7 +211,7 @@
                                 echo "Exam";
                                 break;
                             case "m":
-                                echo "Oral";
+                                echo "Verbal";
                                 break;
                             case "t":
                                 echo "Test";

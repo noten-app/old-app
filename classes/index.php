@@ -106,7 +106,7 @@
             ?>
         </div>
         <div class="class_add" onclick="location.assign('/classes/add/')">
-            <div>Add class <i class="fas fa-plus"></i></div>
+            <div>Create class <i class="fas fa-plus"></i></div>
         </div>
     </main>
     <script src="/res/js/themes/themes.js"></script>
