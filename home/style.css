@@ -2,7 +2,8 @@ main {
     height: calc(100% - var(--navbar-height));
     display: flex;
     flex-direction: column;
-    max-width: 100vw;
+    max-width: 550px;
+    margin: 0 auto;
     overflow-y: auto;
     overflow-x: hidden;
 }
