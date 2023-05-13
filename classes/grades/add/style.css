@@ -300,6 +300,7 @@ Button to add grades
     background-color: var(--background2-color);
     margin: 0.5rem;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .grade_add>div>i {

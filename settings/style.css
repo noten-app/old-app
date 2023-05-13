@@ -49,6 +49,11 @@ main {
     padding: 0.25rem;
     flex-grow: 1;
     min-height: 48px;
+    cursor: pointer;
+}
+
+.button_divider>div:not(.button_divider-button_active):hover{
+    background-color: var(--background2-color);
 }
 
 .button_divider-button_active {
@@ -60,6 +65,7 @@ main {
     display: flex;
     flex-direction: row;
     padding: 0.5rem 0;
+    cursor: pointer;
 }
 
 .dropdown_container-name {
@@ -91,6 +97,7 @@ Account settings
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas: "account-greeting account-icon";
+    cursor: pointer;
 }
 
 .account-icon {
@@ -137,4 +144,11 @@ footer {
     place-items: center;
     text-align: center;
     color: var(--text2-color);
+}
+
+/* 
+Theme icon
+*/
+#theme-icon {
+    cursor: pointer;
 }
