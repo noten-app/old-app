@@ -157,7 +157,7 @@ $con->close();
             ?>
         </div>
         <div class="homework_add" onclick="location.assign('./add/')">
-            <div>Add homework <i class="fas fa-plus"></i></div>
+            <div>Add task <i class="fas fa-plus"></i></div>
         </div>
     </main>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>

@@ -89,7 +89,7 @@
                     $grade["type"] = "Exam";
                     break;
                 case "m":
-                    $grade["type"] = "Oral";
+                    $grade["type"] = "Verbal";
                     break;
                 case 's':
                     $grade["type"] = "Other";

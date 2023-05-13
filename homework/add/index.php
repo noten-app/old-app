@@ -135,7 +135,7 @@
             </div>
         </div>
         <div class="class_add">
-            <div>Create task <i class="fas fa-plus"></i></div>
+            <div>Add task <i class="fas fa-plus"></i></div>
         </div>
         <div id="class_id" style="display: none;"><?=$_GET["class"]?></div>
     </main>
