@@ -141,6 +141,14 @@
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
+            <div class="dropdown_container container_item" onclick="window.open('https:\/\/chartjs.org/', '_blank');">
+                <div class="dropdown_container-name">
+                    Chart.js
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
         </div>
     </div>
     <main id="main">
