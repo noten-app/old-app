@@ -82,7 +82,8 @@
             if ($average != 0) array_push($average_list, $average);
         }
         $stmt->close();
-        $average = array_sum($average_list) / count($average_list);
+        if(count($average_list) == 0) $average = 0;
+        else $average = array_sum($average_list) / count($average_list);
     }
 ?>
 
