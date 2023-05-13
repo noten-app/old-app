@@ -142,6 +142,20 @@
                 </div>
             </div>
         </div>
+        <div class="overlay" id="overlay_delete">
+            <h1 class="overlay-title">Delete Grades</h1>
+            <p>Are you sure, you want to delete all your grades?</p>
+            <p style="color: red;">You cannot undo this!</p>
+            <p>We recommend exporting all your grades before deleting them</p>
+            <div class="dropdown_container container_item" id="delete_grades_button" onclick="location.assign('delete_grades.php');">
+                <div class="dropdown_container-name">
+                    Delete all grades
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+            </div>
+        </div>
     </div>
     <main id="main">
         <div class="group_container" id="account-settings" onclick="open_overlay('overlay_account');">            
@@ -245,6 +259,14 @@
                 </div>
                 <div class="dropdown_container-dropdown_icon">
                     <i class="fa-solid fa-file-arrow-down"></i>
+                </div>
+            </div>
+            <div class="dropdown_container container_item" onclick="open_overlay('overlay_delete');">
+                <div class="dropdown_container-name">
+                    Delete grades
+                </div>
+                <div class="dropdown_container-dropdown_icon">
+                    <i class="fas fa-trash-can"></i>
                 </div>
             </div>
             <div class="dropdown_container container_item" onclick="window.open('https:\/\/noten-app.de/changelogs/', '_blank')">
