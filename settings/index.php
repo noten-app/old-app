@@ -109,14 +109,6 @@
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
             </div>
-            <div class="dropdown_container container_item" onclick="window.open('https:\/\/fullcalendar.io/', '_blank');">
-                <div class="dropdown_container-name">
-                    Fullcalendar
-                </div>
-                <div class="dropdown_container-dropdown_icon">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
-            </div>
             <div class="dropdown_container container_item" onclick="window.open('http:\/\/fpdf.org', '_blank');">
                 <div class="dropdown_container-name">
                     FPDF
