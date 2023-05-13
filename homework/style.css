@@ -167,6 +167,7 @@ Button to add homework
     background-color: var(--background2-color);
     margin: 0.5rem;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .homework_add>div>i {

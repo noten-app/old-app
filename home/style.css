@@ -67,6 +67,13 @@ Homework section
 }
 
 /* 
+Theme icon
+*/
+#theme-icon {
+    cursor: pointer;
+}
+
+/* 
 Grade overview
 */
 .grades_overview {
