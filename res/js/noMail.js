@@ -7,6 +7,4 @@ window.addEventListener("load", function() {
     document.body.insertBefore(noMailNotice, document.body.firstChild);
 }, false);
 
-function noMailOpen() {
-    if (!window.location.toString().includes("/settings")) window.location = "/settings";
-}
+const noMailOpen = () => window.open("https://accounttools.noten-app.de/email/add/", "_blank", "location=yes,height=800,width=800,scrollbars=yes,status=yes");
