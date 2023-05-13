@@ -4,6 +4,13 @@ const date_input_input = document.getElementById('date_input-input');
 const class_add_button = document.querySelector('.class_add');
 
 class_add_button.addEventListener('click', () => {
+    // check if task is empty
+    if (task_input.value == "") {
+        task_input.style.border = "1px solid red";
+        return;
+    } else {
+        task_input.style.border = "";
+    }
     $.ajax({
         url: './add.php',
         type: 'POST',
