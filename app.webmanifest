@@ -51,7 +51,7 @@
     ],
     "name": "Noten-App",
     "orientation": "portrait",
-    "short_name": "NotenApp",
+    "short_name": "Noten-App",
     "start_url": "/",
     "theme_color": "#eb660e"
 }
