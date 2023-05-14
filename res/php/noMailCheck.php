@@ -1,8 +1,5 @@
 <?php 
 
-    // Start the PHP_session
-    if(!isset($_SESSION)) session_start();
-
     // Check if user email is set
     if(!isset($_SESSION['user_email'])) {
         echo "<link rel='stylesheet' href='/res/css/noMail.css'></script>";

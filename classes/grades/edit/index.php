@@ -5,7 +5,8 @@
     $grade_id = $_GET["grade"];
 
     // Check login state
-    session_start();
+    require("../../../res/php/session.php");
+    start_session();
     require("../../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 

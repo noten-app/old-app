@@ -1,7 +1,5 @@
 <?php 
 
-    if(!isset($_SESSION)) session_start();
-
     // Not logged in
     function checkLogin(){
         return !(
