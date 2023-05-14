@@ -1,7 +1,8 @@
 <?php
 
     // Start the PHP_session
-    session_start();
+    require("../../res/php/session.php");
+    start_session();
 
     // Variables
     require('../../config.php');
