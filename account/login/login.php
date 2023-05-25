@@ -1,8 +1,8 @@
 <?php
 
     // Start the PHP_session
-    session_start();
-
+    require("../../res/php/session.php");
+    start_session();
     // Variables
     require('../../config.php');
 
@@ -46,6 +46,10 @@
         $_SESSION["beta_tester"] = $beta_tester;
 
         // Redirect to app
+        if(redirect_beta_users != null && redirect_beta_users != false && $beta_tester == 1) {
+            header("Location: ".redirect_beta_users);
+            exit();
+        }
         header("Location: /");
     }
 ?>

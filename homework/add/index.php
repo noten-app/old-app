@@ -1,7 +1,8 @@
 <?php 
 
     // Check login state
-    session_start();
+    require("../../res/php/session.php");
+    start_session();
     require("../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
@@ -122,7 +123,7 @@
                     Task
                 </div>
                 <div class="task-container">
-                    <input type="text" id="task-input" maxlength="25">
+                    <input type="text" id="task-input" maxlength="75">
                 </div>
             </div>
             <div class="date">
@@ -135,7 +136,7 @@
             </div>
         </div>
         <div class="class_add">
-            <div>Create task <i class="fas fa-plus"></i></div>
+            <div>Add task <i class="fas fa-plus"></i></div>
         </div>
         <div id="class_id" style="display: none;"><?=$_GET["class"]?></div>
     </main>
@@ -144,5 +145,4 @@
     <script src="./type-switch.js"></script>
     <script src="./add-class.js"></script>
 </body>
-
 </html>

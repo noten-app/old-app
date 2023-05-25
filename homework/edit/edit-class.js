@@ -6,6 +6,13 @@ const task_mark_undone_button = document.getElementById('task_mark_undone');
 const task_delete_button = document.getElementById('task_delete');
 
 class_edit_button.addEventListener('click', () => {
+    // check if task is empty
+    if (task_input.value == "") {
+        task_input.style.border = "1px solid red";
+        return;
+    } else {
+        task_input.style.border = "";
+    }
     $.ajax({
         url: './edit.php',
         type: 'POST',

@@ -210,6 +210,7 @@ Button to edit classes
     background-color: var(--background2-color);
     margin: 0.5rem;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .class_edit div {

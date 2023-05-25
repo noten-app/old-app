@@ -30,3 +30,12 @@
 .overlay-title {
     margin-top: 0;
 }
+
+/* 
+Delete all grades
+*/
+#delete_grades_button {
+    background-color: #880000;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}

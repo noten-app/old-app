@@ -1,7 +1,8 @@
 <?php
 
 // Check login state
-session_start();
+require("../res/php/session.php");
+start_session();
 require("../res/php/checkLogin.php");
 if (!checkLogin()) header("Location: /account");
 
@@ -26,7 +27,7 @@ if(isset($_GET["showall"]) && $_GET["showall"] == 1) {
 
 // Get all tasks
 if ($stmt = $con->prepare("SELECT * FROM " . config_table_name_homework . " WHERE user_id = ?".$showall_text)) {
-    $stmt->bind_param("i", $_SESSION["user_id"]);
+    $stmt->bind_param("s", $_SESSION["user_id"]);
     $stmt->execute();
     $result = $stmt->get_result();
     $homework = $result->fetch_all(MYSQLI_ASSOC);
@@ -34,7 +35,7 @@ if ($stmt = $con->prepare("SELECT * FROM " . config_table_name_homework . " WHER
 
 // Get all classes
 if ($stmt = $con->prepare("SELECT * FROM " . config_table_name_classes . " WHERE user_id = ?")) {
-    $stmt->bind_param("i", $_SESSION["user_id"]);
+    $stmt->bind_param("s", $_SESSION["user_id"]);
     $stmt->execute();
     $result = $stmt->get_result();
     $classes = $result->fetch_all(MYSQLI_ASSOC);
@@ -115,7 +116,7 @@ $con->close();
                         echo '<div class="homework_entry">';
                         echo '<div class="classname">';
                         foreach ($classes as $class) if ($class["id"] == $hw_entry["class"]) echo $class["name"];
-                        echo '</div><div class="task" onclick="location.assign(\'./edit/?task='.$hw_entry["entry_id"].'\')">' . $hw_entry["text"] . '</div>';
+                        echo '</div><div class="task" onclick="location.assign(\'./edit/?task='.$hw_entry["entry_id"].'\')"><span>' . $hw_entry["text"] . '</span></div>';
                         echo '<div class="dot" id="dot-'.$hw_entry["entry_id"].'" onclick="toggleState(\''.$hw_entry["entry_id"].'\')">';
                         if($hw_entry["status"] == 0) echo '<i class="fa-regular fa-circle"></i></div>';
                         else if($hw_entry["status"] == 2) echo '<i class="fa-regular fa-circle-xmark"></i></div>';
@@ -157,12 +158,16 @@ $con->close();
             ?>
         </div>
         <div class="homework_add" onclick="location.assign('./add/')">
-            <div>Add homework <i class="fas fa-plus"></i></div>
+            <div>Add task <i class="fas fa-plus"></i></div>
         </div>
     </main>
     <script src="/res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
     <script src="state.js"></script>
+    <script>
+        // Check which tasks are overflowing
+        document.querySelectorAll(".task").forEach(task => { if(task.offsetWidth < task.querySelector("span").scrollWidth) task.querySelector("span").classList.add("scroll")});
+    </script>
 </body>
 
 </html>

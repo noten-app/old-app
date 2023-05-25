@@ -1,7 +1,8 @@
 <?php 
 
     // Check login state
-    session_start();
+    require("../res/php/session.php");
+    start_session();
     require("../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
@@ -89,7 +90,7 @@
                     $grade["type"] = "Exam";
                     break;
                 case "m":
-                    $grade["type"] = "Oral";
+                    $grade["type"] = "Verbal";
                     break;
                 case 's':
                     $grade["type"] = "Other";

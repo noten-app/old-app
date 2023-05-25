@@ -5,7 +5,8 @@
     $class_id = $_GET["class"];
 
     // Check login state
-    session_start();
+    require("../../res/php/session.php");
+    start_session();
     require("../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
@@ -211,7 +212,7 @@
                                 echo "Exam";
                                 break;
                             case "m":
-                                echo "Oral";
+                                echo "Verbal";
                                 break;
                             case "t":
                                 echo "Test";

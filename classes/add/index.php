@@ -1,7 +1,8 @@
 <?php 
 
     // Check login state
-    session_start();
+    require("../../res/php/session.php");
+    start_session();
     require("../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
@@ -28,7 +29,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a class | Noten-App</title>
+    <title>Create a class | Noten-App</title>
     <link rel="stylesheet" href="/res/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">

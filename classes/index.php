@@ -1,7 +1,8 @@
 <?php 
 
     // Check login state
-    session_start();
+    require("../res/php/session.php");
+    start_session();
     require("../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
@@ -106,7 +107,7 @@
             ?>
         </div>
         <div class="class_add" onclick="location.assign('/classes/add/')">
-            <div>Add class <i class="fas fa-plus"></i></div>
+            <div>Create class <i class="fas fa-plus"></i></div>
         </div>
     </main>
     <script src="/res/js/themes/themes.js"></script>

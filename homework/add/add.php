@@ -1,7 +1,8 @@
 <?php 
 
     // Check login state
-    session_start();
+    require("../../res/php/session.php");
+    start_session();
     require("../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
@@ -29,7 +30,7 @@
     if(!($type == "b" || $type == "v" || $type == "w" || $type == "o")) die("invalid-type");
     if(!isset($date_due) || strlen($date_due) == 0) die("missing-date_due");
     if(!isset($task) || strlen($task) == 0) die("missing-task");
-    if(strlen($task) > 26) die("too-long-task");
+    if(strlen($task) > 75) die("too-long-task");
 
     // Encode task
     $task = htmlentities($task);

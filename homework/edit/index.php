@@ -1,7 +1,8 @@
 <?php
 
     // Check login state
-    session_start();
+    require("../../res/php/session.php");
+    start_session();
     require("../../res/php/checkLogin.php");
     if(!checkLogin()) header("Location: /account");
 
@@ -136,7 +137,7 @@
                     Task
                 </div>
                 <div class="task-container">
-                    <input type="text" id="task-input" maxlength="25" value="<?=$task["text"]?>">
+                    <input type="text" id="task-input" maxlength="75" value="<?=$task["text"]?>">
                 </div>
             </div>
             <div class="date">

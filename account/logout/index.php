@@ -1,7 +1,7 @@
 <?php 
 
-    session_start();
-    session_destroy();
+    require("../../res/php/session.php");
+    destroy_session();
 
-    header('Location: /');
+    header('Location: https://app.noten-app.de/');
 ?>
