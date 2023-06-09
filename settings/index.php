@@ -157,6 +157,14 @@ $con->close();
                 </div>
             </div>
         </div>
+        <div class="overlay" id="overlay_warn_system">
+            <h1 class="overlay-title">Warning</h1>
+            <p>You have grades in your Account that end in .5!</p>
+            <p>Because the Grade-Point system has +Grades (.66) and -Grades (.33), .5-Values cant be converted!</p>
+            <p>These grades are not supported by the system and will therefore look weird.</p>
+            <p>You can fix this by changing the grades or deleting them.</p>
+            <p>You also could revert back to the old System with Grades! Then all your Grades will be automatically restored from the now converted Grade-Points.</p>
+        </div>
     </div>
     <main id="main">
         <div class="group_container" id="account-settings" onclick="open_overlay('overlay_account');">
@@ -198,11 +206,11 @@ $con->close();
             </div>
             <div class="container_item">
                 System
-                <div class="button_divider">
-                    <div <?php if ($_SESSION["setting_system"] == "noten") echo 'class="button_divider-button_active" '; ?>>
+                <div class="button_divider" id="system_container">
+                    <div <?php if ($_SESSION["setting_system"] == "noten") echo 'class="button_divider-button_active" '; ?> onclick="setSystem('noten');">
                         Noten
                     </div>
-                    <div <?php if ($_SESSION["setting_system"] == "punkte") echo 'class="button_divider-button_active" '; ?>>
+                    <div <?php if ($_SESSION["setting_system"] == "punkte") echo 'class="button_divider-button_active" '; ?> onclick="setSystem('punkte');">
                         Punkte
                     </div>
                 </div>
@@ -342,6 +350,7 @@ $con->close();
     <script src="overlays.js"></script>
     <script src="rounding.js"></script>
     <script src="sorting.js"></script>
+    <script src="grade_system.js"></script>
 </body>
 
 </html>
