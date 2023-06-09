@@ -9,6 +9,9 @@
     // Get config
     require("../../../config.php");
 
+    // Get point system transformer
+    require($_SERVER["DOCUMENT_ROOT"] . "/res/php/point-system.php");
+
     // DB Connection
     $con = mysqli_connect(
         config_db_host,
@@ -87,4 +90,3 @@
 
     // DB Con close
     $con->close();
-?>
