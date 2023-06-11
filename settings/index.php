@@ -1,25 +1,25 @@
-<?php 
+<?php
 
-    // Check login state
-    require("../res/php/session.php");
-    start_session();
-    require("../res/php/checkLogin.php");
-    if(!checkLogin()) header("Location: /account");
+// Check login state
+require("../res/php/session.php");
+start_session();
+require("../res/php/checkLogin.php");
+if (!checkLogin()) header("Location: /account");
 
-    // Get config
-    require("../config.php");
+// Get config
+require("../config.php");
 
-    // DB Connection
-    $con = mysqli_connect(
-        config_db_host,
-        config_db_user,
-        config_db_password,
-        config_db_name
-    );
-    if(mysqli_connect_errno()) exit("Error with the Database");
+// DB Connection
+$con = mysqli_connect(
+    config_db_host,
+    config_db_user,
+    config_db_password,
+    config_db_name
+);
+if (mysqli_connect_errno()) exit("Error with the Database");
 
-    // DB Con close
-    $con->close();
+// DB Con close
+$con->close();
 ?>
 
 <!DOCTYPE html>
@@ -60,14 +60,14 @@
         <div class="overlay" id="overlay_account">
             <h1 class="overlay-title">Account</h1>
             <div class="dropdown_container container_item">
-                <?php 
-                    if(isset($_SESSION['user_email'])) $mail_link = "edit";
-                    else $mail_link = "add";
+                <?php
+                if (isset($_SESSION['user_email'])) $mail_link = "edit";
+                else $mail_link = "add";
                 ?>
-                <div class="dropdown_container-name" onclick="location.assign('https:\/\/accounttools.noten-app.de/email/<?=$mail_link?>/')">
-                    <?php 
-                        if(isset($_SESSION['user_email'])) echo "Change Email";
-                        else echo "Add Email"; 
+                <div class="dropdown_container-name" onclick="location.assign('https:\/\/accounttools.noten-app.de/email/<?= $mail_link ?>/')">
+                    <?php
+                    if (isset($_SESSION['user_email'])) echo "Change Email";
+                    else echo "Add Email";
                     ?>
                 </div>
                 <div class="dropdown_container-dropdown_icon">
@@ -157,12 +157,20 @@
                 </div>
             </div>
         </div>
+        <div class="overlay" id="overlay_warn_system">
+            <h1 class="overlay-title">Warning</h1>
+            <p>You have grades in your Account that end in .5!</p>
+            <p>Because the Grade-Point system has +Grades (.66) and -Grades (.33), .5-Values cant be converted!</p>
+            <p>These grades are not supported by the system and will therefore look weird.</p>
+            <p>You can fix this by changing the grades or deleting them.</p>
+            <p>You also could revert back to the old System with Grades! Then all your Grades will be automatically restored from the now converted Grade-Points.</p>
+        </div>
     </div>
     <main id="main">
-        <div class="group_container" id="account-settings" onclick="open_overlay('overlay_account');">            
+        <div class="group_container" id="account-settings" onclick="open_overlay('overlay_account');">
             <div class="account-greeting">
                 <span id="account_greeting-naa">Naaa,</span>
-                <span id="account_greeting-name"><?=$_SESSION["user_name"]?></span>
+                <span id="account_greeting-name"><?= $_SESSION["user_name"] ?></span>
             </div>
             <div class="account-icon">
                 <i class="fas fa-user"></i>
@@ -183,43 +191,43 @@
             <div class="container_item">
                 Decimals (Rounding)
                 <div class="button_divider">
-                    <div <?php if($_SESSION["setting_rounding"] == 0) echo 'class="button_divider-button_active" ';?>onclick="setRounding(0);">
+                    <div <?php if ($_SESSION["setting_rounding"] == 0) echo 'class="button_divider-button_active" '; ?>onclick="setRounding(0);">
                         No<br>
                         2
                     </div>
-                    <div <?php if($_SESSION["setting_rounding"] == 1) echo 'class="button_divider-button_active" ';?>onclick="setRounding(1);">
+                    <div <?php if ($_SESSION["setting_rounding"] == 1) echo 'class="button_divider-button_active" '; ?>onclick="setRounding(1);">
                         One<br>
                         1,7
                     </div>
-                    <div <?php if($_SESSION["setting_rounding"] == 2) echo 'class="button_divider-button_active" ';?>onclick="setRounding(2);">
+                    <div <?php if ($_SESSION["setting_rounding"] == 2) echo 'class="button_divider-button_active" '; ?>onclick="setRounding(2);">
                         Two<br>1,72
                     </div>
                 </div>
             </div>
-            <!-- <div class="container_item">
-                Show Date
-                <div class="button_divider">
-                    <div class="button_divider-button1 button_divider-button_active">
-                        Yes
+            <div class="container_item">
+                System
+                <div class="button_divider" id="system_container">
+                    <div <?php if ($_SESSION["setting_system"] == "noten") echo 'class="button_divider-button_active" '; ?> onclick="setSystem('noten');">
+                        Noten
                     </div>
-                    <div class="button_divider-button2">
-                        No
+                    <div <?php if ($_SESSION["setting_system"] == "punkte") echo 'class="button_divider-button_active" '; ?> onclick="setSystem('punkte');">
+                        Punkte
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
         <span class="container-title">Sorting settings</span>
         <div class="group_container" id="grade-settings">
             <div class="container_item">
                 Classes
                 <div class="button_divider">
-                    <div <?php if($_SESSION["setting_sorting"] == "average") echo 'class="button_divider-button_active" ';?>onclick="setSorting('average');">
+                    <div <?php if ($_SESSION["setting_sorting"] == "average") echo 'class="button_divider-button_active" '; ?>onclick="setSorting('average');">
                         Average
                     </div>
-                    <div <?php if($_SESSION["setting_sorting"] == "alphabet") echo 'class="button_divider-button_active" ';?>onclick="setSorting('alphabet');">
+                    <div <?php if ($_SESSION["setting_sorting"] == "alphabet") echo 'class="button_divider-button_active" '; ?>onclick="setSorting('alphabet');">
                         Alphabet
                     </div>
-                    <div <?php if($_SESSION["setting_sorting"] == "lastuse") echo 'class="button_divider-button_active" ';?>onclick="setSorting('lastuse');">
+                    <div <?php if ($_SESSION["setting_sorting"] == "lastuse") echo 'class="button_divider-button_active" '; ?>onclick="setSorting('lastuse');">
                         Last use
                     </div>
                 </div>
@@ -333,7 +341,7 @@
         <footer>
             <div class="footer_container">
                 <p>Made with ❤️ in Germany.</p>
-                <p><?php echo config_version_name; ?><?php if($_SESSION["beta_tester"] == 1)echo " Beta"?></p>
+                <p><?php echo config_version_name; ?><?php if ($_SESSION["beta_tester"] == 1) echo " Beta" ?></p>
             </div>
         </footer>
     </main>
@@ -342,6 +350,7 @@
     <script src="overlays.js"></script>
     <script src="rounding.js"></script>
     <script src="sorting.js"></script>
+    <script src="grade_system.js"></script>
 </body>
 
 </html>

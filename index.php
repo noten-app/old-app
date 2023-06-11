@@ -9,6 +9,9 @@ if (!checkLogin()) header("Location: /account");
 // Get config
 require("./config.php");
 
+// Get point system transformer
+require($_SERVER["DOCUMENT_ROOT"] . "/res/php/point-system.php");
+
 // DB Connection
 $con = mysqli_connect(
     config_db_host,
@@ -153,11 +156,21 @@ if ($stmt = $con->prepare("SELECT average FROM " . config_table_name_classes . "
             </div>
         </div>
         <div class="grades_overview card">
-            <div class="grade_average-value grades-value noborder"><?= number_format($average, $_SESSION["setting_rounding"], '.', '') ?></div>
+            <div class="grade_average-value grades-value noborder">
+                <?php
+                if (systemRun("punkte")) echo (number_format(calcToPoints(false, $average), $_SESSION["setting_rounding"], '.', ''));
+                else echo number_format($average, $_SESSION["setting_rounding"], '.', '');
+                ?>
+            </div>
             <div class="grade_average-label grades-label noborder">Total Average</div>
             <div class="num_of_grades-value grades-value"><?= $num_of_grades ?></div>
             <div class="num_of_grades-label grades-label">Number of Grades</div>
-            <div class="last_grade-value grades-value"><?= number_format($last_grade, $_SESSION["setting_rounding"], '.', '') ?></div>
+            <div class="last_grade-value grades-value">
+                <?php
+                if (systemRun("punkte")) echo (number_format(calcToPoints(false, $last_grade)));
+                else echo number_format($last_grade, $_SESSION["setting_rounding"], '.', '');
+                ?>
+            </div>
             <div class="last_grade-label grades-label">Last grade</div>
         </div>
         <?php if (count($homework) != 0) { ?>

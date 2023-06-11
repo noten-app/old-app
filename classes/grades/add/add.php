@@ -55,7 +55,7 @@
     }
 
     // Check if grade is valid
-    if($grade_float < 1 || $grade_float > 6) die("invalid-grade");
+    if($grade_float < 0 || $grade_float > 6) die("invalid-grade");
 
     // Check if date is valid
     if(!preg_match("/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $date)) die("invalid-date");
@@ -87,4 +87,3 @@
 
     // DB Con close
     $con->close();
-?>
